@@ -14,7 +14,8 @@ public class MoveForwardAction extends AbstractAction {
 
 	public MoveForwardAction() {
 		putValue(Action.NAME, "moveForward");
-		putValue(Action.SMALL_ICON, new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("moveForward")));
+        String image = ResourceHandler.getInstance().getIcons().getString("moveForward");
+        putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource("/icons/"+image)));
 		putValue(Action.SHORT_DESCRIPTION, ResourceHandler.getInstance().getStrings().getString("moveForward"));
 	}
 

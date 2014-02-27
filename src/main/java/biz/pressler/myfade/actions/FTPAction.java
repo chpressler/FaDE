@@ -14,7 +14,8 @@ public class FTPAction extends AbstractAction {
 
 	public FTPAction() {
 		putValue(Action.NAME, "ftp");
-		putValue(Action.SMALL_ICON, new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("ftp")));
+        String image = ResourceHandler.getInstance().getIcons().getString("ftp");
+        putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource("/icons/"+image)));
 		putValue(Action.SHORT_DESCRIPTION, ResourceHandler.getInstance().getStrings().getString("ftp"));
 	}
 

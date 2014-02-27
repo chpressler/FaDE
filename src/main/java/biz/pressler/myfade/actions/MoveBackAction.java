@@ -14,7 +14,8 @@ public class MoveBackAction extends AbstractAction {
 	
 	public MoveBackAction() {
 		putValue(Action.NAME, "moveBack");
-		putValue(Action.SMALL_ICON, new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("moveBack")));
+        String image = ResourceHandler.getInstance().getIcons().getString("moveBack");
+        putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource("/icons/"+image)));
 		putValue(Action.SHORT_DESCRIPTION, ResourceHandler.getInstance().getStrings().getString("moveBack"));
 	}
 

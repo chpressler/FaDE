@@ -10,16 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JSplitPane;
-import javax.swing.JWindow;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
+import javax.swing.*;
 
 import biz.pressler.myfade.components.ActionsComponent;
 import biz.pressler.myfade.components.FaDEComponent;
@@ -119,9 +110,14 @@ public class FaDE extends JFrame implements FaDEComponentSelectionListener {
 		jsp = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, left, right);
 		add(jsp, BorderLayout.CENTER);
 		actionscomponent = new ActionsComponent();
-		add(actionscomponent, BorderLayout.SOUTH);
+//		add(actionscomponent, BorderLayout.SOUTH);
 		statusbar = new FaDEStatusBar(left.getIExplorerComponent(), right.getIExplorerComponent());
 //		add(statusbar, BorderLayout.SOUTH);
+        JPanel southPanel = new JPanel();
+        southPanel.setLayout(new BorderLayout());
+        southPanel.add(actionscomponent, BorderLayout.NORTH);
+        southPanel.add(statusbar, BorderLayout.SOUTH);
+        add(southPanel, BorderLayout.SOUTH);
 		left.getIExplorerComponent().addExplorerComponentListener(statusbar);
 		right.getIExplorerComponent().addExplorerComponentListener(statusbar);
 		jsp.setBorder(BorderFactory.createEmptyBorder()); 

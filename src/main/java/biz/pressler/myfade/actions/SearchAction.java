@@ -14,7 +14,8 @@ public class SearchAction extends AbstractAction {
 
 	public SearchAction() {
 		putValue(Action.NAME, "search");
-		putValue(Action.SMALL_ICON, new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("search")));
+        String image = ResourceHandler.getInstance().getIcons().getString("search");
+        putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource("/icons/"+image)));
 		putValue(Action.SHORT_DESCRIPTION, ResourceHandler.getInstance().getStrings().getString("search"));
 	}
 
