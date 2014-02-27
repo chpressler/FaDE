@@ -28,7 +28,7 @@ public class FaDE extends JFrame implements FaDEComponentSelectionListener {
 	private FaDEComponent left;
 	private FaDEComponent right;
 	private LayoutManager layout = null;
-
+    public static enum OSType {MS, UNIX, UNKNOWN};
 	private static volatile FaDE instance;
 	
 	public static synchronized FaDE getInstance() {
@@ -128,11 +128,11 @@ public class FaDE extends JFrame implements FaDEComponentSelectionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);		
 		
-		try {
-			setIconImage(ImageIO.read(new File("myFaDE.jpg")));
+		/*try {
+			setIconImage(ImageIO.read(new File(FaDE.class.getClassLoader().getResource("myFaDE.jpg").toString())));
 		} catch (IOException e1) {
 			e1.printStackTrace();
-		}
+		}*/
 	}
 	
 	public FaDEComponent getSelectedFaDEComponent() {
@@ -180,5 +180,16 @@ public class FaDE extends JFrame implements FaDEComponentSelectionListener {
 			left.setSelected(false);
 		}
 	}
+
+    public static OSType getOSType() {
+        String os = System.getProperty("os.name", "").toLowerCase();
+        if (os.startsWith("windows")) {
+            return OSType.MS;
+        } else if (os.startsWith("linux") || os.startsWith("mac") || os.startsWith("darwin")) {
+            return OSType.UNIX;
+        } else {
+            return OSType.UNKNOWN;
+        }
+    }
 	
 }

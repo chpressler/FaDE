@@ -14,6 +14,7 @@ import javax.swing.JTree;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 
+import biz.pressler.myfade.FaDE;
 import net.miginfocom.swing.MigLayout;
 
 import biz.pressler.myfade.controller.FileTreeController;
@@ -117,7 +118,11 @@ public class FileTreeComponent extends JPanel implements IExplorerComponent {
 		if(!f.isDirectory()) {
 			return;
 		}
-		root = getRoot(f);
+        if(FaDE.getInstance().getOSType().equals(FaDE.OSType.UNIX)) {
+            root = f;
+        } else {
+            root = getRoot(f);
+        }
 		view.clearSelection();
 		view.updateUI();
 		for(ExplorerComponentListener l : listeners) {

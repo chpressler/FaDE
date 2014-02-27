@@ -1,7 +1,5 @@
 package biz.pressler.myfade;
 
-import java.io.IOException;
-import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -13,13 +11,13 @@ public class FaDEUncaughtExceptionHandler implements Thread.UncaughtExceptionHan
 	private Logger logger = Logger.getLogger(FaDELogger.class.getName());
 	
 	public FaDEUncaughtExceptionHandler() {
-		try {
-			logger.addHandler(new FileHandler("FaDEErrorLog.xml.txt"));
-		} catch (SecurityException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			logger.addHandler(new FileHandler("FaDEErrorLog.xml.txt"));
+//		} catch (SecurityException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 	}
 	
 	@Override

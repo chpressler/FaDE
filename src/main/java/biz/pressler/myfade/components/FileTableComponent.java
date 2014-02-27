@@ -1,5 +1,6 @@
 package biz.pressler.myfade.components;
 
+import biz.pressler.myfade.FaDE;
 import biz.pressler.myfade.controller.FileTableController;
 import biz.pressler.myfade.model.FileTableModel;
 import java.awt.Color;
@@ -156,7 +157,7 @@ public class FileTableComponent extends JPanel implements IExplorerComponent {
 	}
 	
 	public JTable getView() {
-		return view;
+        return view;
 	}
 
 	@Override
@@ -169,8 +170,11 @@ public class FileTableComponent extends JPanel implements IExplorerComponent {
 		if(!f.isDirectory()) {
 			return;
 		}
-		root = getRoot(f);
-		
+        if(FaDE.getInstance().getOSType().equals(FaDE.OSType.UNIX)) {
+            root = f;
+        } else {
+		    root = getRoot(f);
+        }
 		view.clearSelection();
 		view.updateUI();
 		for(ExplorerComponentListener l : listeners) {
