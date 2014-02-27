@@ -31,17 +31,11 @@ import biz.pressler.myfade.components.FaDEToolBar;
 public class FaDE extends JFrame implements FaDEComponentSelectionListener {
 
 	private static final long serialVersionUID = 1L;
-	
 	private JSplitPane jsp;
-	
 	private ActionsComponent actionscomponent;
-	
 	private FaDEStatusBar statusbar;
-	
 	private FaDEComponent left;
-	
 	private FaDEComponent right;
-	
 	private LayoutManager layout = null;
 
 	private static volatile FaDE instance;
@@ -169,9 +163,9 @@ public class FaDE extends JFrame implements FaDEComponentSelectionListener {
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		int h = dim.height;
 		int w = dim.width;
-		JLabel label = new JLabel(new ImageIcon("myFaDE.jpg"));
+		JLabel label = new JLabel(new ImageIcon(FaDE.class.getClassLoader().getResource("myFaDE.jpg")));
 		jw.getContentPane().add(label);
-		jw.setBounds(h / 2 - 150, w / 2 - 250, 500, 300);
+		jw.setBounds(w / 2 - 250, h / 2 - 150, 500, 300);
 		jw.setVisible(true);
 //		JFrame.setDefaultLookAndFeelDecorated(true);
 		SwingUtilities.invokeLater(new Runnable() {

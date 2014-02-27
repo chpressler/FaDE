@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
@@ -160,11 +162,12 @@ public class FaDEMenu extends JMenuBar {
 //		help_help.addActionListener(new HelpAction());
 		help.add(help_help);
 		help.addSeparator();
+        final String year = new SimpleDateFormat("yyyy").format(new Date());
 		help_about.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				final JDialog jd = new JDialog();
 				JOptionPane.showMessageDialog(jd,
-						"myFaDE File and Directory Explorer\nVersion 1.0\n\n(c)hristian Pressler\n\nhttps://chpressler@bitbucket.org/chpressler/myfade.git\nchristian.pressler@gmail.com", "About FaDE",
+						"myFaDE File and Directory Explorer\nVersion 1.0\n\n(c)hristian Pressler 2010 - "+year+" | pressler.biz\n\nhttps://chpressler@bitbucket.org/chpressler/myfade.git\nchristian.pressler@gmail.com", "About FaDE",
 						JOptionPane.INFORMATION_MESSAGE, new ImageIcon("about.jpg"));
 			}
 		});
