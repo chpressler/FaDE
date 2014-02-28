@@ -22,10 +22,50 @@ public class DriveSelectComponent extends JPanel implements ExplorerComponentLis
 
 	private static final long serialVersionUID = 1L;
 	private FaDEComponent c;
-	private ArrayList<DriveButton> buttons = new ArrayList<DriveButton>();
+	private List<DriveButton> buttons;
+    private int rootCount;
 	private ButtonGroup bg;
 	private DriveButton currentSelected;
 	private LayoutManager layout = null;
+
+    private int getRootCount() {
+        FaDE.OSType os = FaDE.getOSType();
+        switch (os) {
+            case UNIX:
+                try {
+                    int count = 0;
+                    Process mountProcess = Runtime.getRuntime().exec("mount");
+                    BufferedReader mountOutput = new BufferedReader(new InputStreamReader(mountProcess.getInputStream()));
+                    while (true) {
+                        count++;
+                        String line = mountOutput.readLine();
+                        if (line == null) {
+                            break;
+                        }
+                    }
+                    return count;
+                } catch (Exception e) {
+                    return File.listRoots().length;
+                }
+            case MS:
+                // fall through
+            default:
+                return File.listRoots().length;
+        }
+    }
+
+    private boolean rootCountChanged() {
+        if(rootCount < 0) {
+            rootCount = getRootCount();
+            return false;
+        }
+        int rc = getRootCount();
+        if(rootCount != rc) {
+           rootCount = rc;
+           return true;
+        }
+        return false;
+    }
 
     private File[] getRootFiles() {
         FaDE.OSType os = FaDE.getOSType();
@@ -47,8 +87,8 @@ public class DriveSelectComponent extends JPanel implements ExplorerComponentLis
                         }
                     }
                     mountOutput.close();
-                    File[] rootsarray = new File[roots.size()];
-                    return roots.toArray(rootsarray);
+                    File[] ra = new File[roots.size()];
+                    return roots.toArray(ra);
                 } catch (Exception e) {
                     Logger.getLogger(DriveSelectComponent.class.getName()).log(Level.SEVERE, e.getMessage());
                     return File.listRoots();
@@ -92,7 +132,7 @@ public class DriveSelectComponent extends JPanel implements ExplorerComponentLis
 				break;
 			}
 		}
-		
+        updateUI();
 	}
 	
 	public File getSelectedRoot() {
@@ -105,9 +145,26 @@ public class DriveSelectComponent extends JPanel implements ExplorerComponentLis
 	}
 	
 	public DriveSelectComponent(FaDEComponent c) {
+        buttons = new ArrayList<DriveButton>();
+        rootCount = -1;
 //		setLayout(new FlowLayout());
 		this.c = c;
 		init();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if(rootCountChanged()) {
+                        init();
+                    }
+                }
+            }
+        }).start();
 	}
 
 	@Override
