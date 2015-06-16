@@ -46,7 +46,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>biz.pressler.myfade.FaDE</mainClass>
+                            <mainClass>com.jensui.projects.myfade.FaDE</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
