@@ -2,13 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>biz.pressler</groupId>
-    <artifactId>myfade</artifactId>
+    <groupId>projects.jensui.com</groupId>
+    <artifactId>fade</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>myfade</name>
-    <url>http://pressler.biz</url>
+    <name>fade</name>
+    <url>http://fade.projects.jensui.com</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -36,7 +36,11 @@
             <artifactId>napkinlaf</artifactId>
             <version>1.2</version>
         </dependency>
-
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -46,7 +50,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.jensui.projects.myfade.FaDE</mainClass>
+                            <mainClass>com.jensui.projects.fade.FaDE</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
