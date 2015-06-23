@@ -4,47 +4,38 @@ import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import org.apache.commons.io.FileUtils;
 
 import javax.swing.AbstractAction;
 
 import com.jensui.projects.fade.FaDE;
+import org.apache.commons.io.FileUtils;
 
 public class FileCopyAction extends AbstractAction {
 
     private static final long serialVersionUID = 1L;
 
     public void actionPerformed(ActionEvent e) {
-        for (File inputFile : FaDE.getInstance().getSelectedFaDEComponent().getIExplorerComponent().getSelectedFiles()) {
+        for (File source : FaDE.getInstance().getSelectedFaDEComponent().getIExplorerComponent().getSelectedFiles()) {
+            System.out.println( FaDE.getInstance().getUnselectedFaDEComponent().getIExplorerComponent().getCurrentDirectory().setWritable(true) );
             try {
-                File outputFile = new File(FaDE.getInstance().getUnselectedFaDEComponent().getIExplorerComponent().getCurrentDirectory().getAbsolutePath() + "/" + inputFile.getName());
+                File destination = new File(FaDE.getInstance().getUnselectedFaDEComponent().getIExplorerComponent().getCurrentDirectory().getAbsolutePath() + "/" + source.getName());
                 int x = 0;
-                while (outputFile.exists()) {
+                while (destination.exists()) {
                     x++;
-                    outputFile = new File(FaDE.getInstance().getUnselectedFaDEComponent().getIExplorerComponent().getCurrentDirectory().getAbsolutePath() + "/" + "(" + x + ") " + inputFile.getName());
+                    destination = new File(FaDE.getInstance().getUnselectedFaDEComponent().getIExplorerComponent().getCurrentDirectory().getAbsolutePath() + "/" + "(" + x + ") " + source.getName());
                 }
-                outputFile.createNewFile();
-                if (inputFile.isDirectory()) {
-                    FileUtils.copyDirectory(inputFile, outputFile);
+                if (source.isDirectory()) {
+                    destination.mkdir();
+                    FileUtils.copyDirectory(source, destination);
                 } else {
-                    FileReader in = null;
-                    FileWriter out = null;
-                    try {
-                        in = new FileReader(inputFile);
-                        out = new FileWriter(outputFile);
-                        int c;
-                        while ((c = in.read()) != -1) {
-                            out.write(c);
-                        }
-                    } finally {
-                        in.close();
-                        out.close();
-                    }
+                    destination.createNewFile();
+                    FileUtils.copyFile(source, destination);
                 }
             } catch (Exception exc) {
                 exc.printStackTrace();
             }
         }
+        FaDE.getInstance().repaint();
     }
 
 }
