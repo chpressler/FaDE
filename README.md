@@ -1,2 +1,2 @@
-# myfade
-a Java based file explorer with FTP / SFTP support
+# FaDE - File and Directory Explorer
+a Java based file manager with FTP / SFTP & Cloud support
