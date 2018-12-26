@@ -41,7 +41,7 @@
        fy="25.53125"
        r="9.6875"
        gradientTransform="matrix(1.000000,0.000000,0.000000,0.351613,1.292803e-15,16.55413)"
-       gradientUnits="userSpaceOnUse" />
+    />
   </defs>
   <sodipodi:namedview
      fill="#edd400"

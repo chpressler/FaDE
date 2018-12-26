@@ -19,7 +19,6 @@
    inkscape:export-filename="/home/jimmac/Desktop/wi-fi.png"
    inkscape:export-xdpi="90.000000"
    inkscape:export-ydpi="90.000000"
-   version="1.0"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs3">
@@ -59,8 +58,7 @@
          style="stop-color:#ffffff;stop-opacity:0;" />
     </linearGradient>
     <radialGradient
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(2.046729,-3.749427e-16,2.853404e-16,1.557610,-19.51799,3.452086)"
+            gradientTransform="matrix(2.046729,-3.749427e-16,2.853404e-16,1.557610,-19.51799,3.452086)"
        r="17.171415"
        fy="2.8969381"
        fx="19.701141"
@@ -70,8 +68,7 @@
        xlink:href="#linearGradient8650"
        inkscape:collect="always" />
     <radialGradient
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.000000,0.000000,0.000000,0.536723,2.511012e-15,16.87306)"
+            gradientTransform="matrix(1.000000,0.000000,0.000000,0.536723,2.511012e-15,16.87306)"
        r="15.644737"
        fy="36.421127"
        fx="24.837126"
@@ -90,7 +87,7 @@
        fy="32.797512"
        r="16.9562"
        gradientTransform="matrix(0.843022,1.871885e-16,-2.265228e-16,1.020168,4.499298,1.381992)"
-       gradientUnits="userSpaceOnUse" />
+    />
   </defs>
   <sodipodi:namedview
      inkscape:window-y="25"

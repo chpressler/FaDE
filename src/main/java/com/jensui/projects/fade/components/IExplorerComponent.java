@@ -1,29 +1,29 @@
 package com.jensui.projects.fade.components;
 
-import java.io.File;
+import com.jensui.projects.fade.IFile;
+
 import java.util.ArrayList;
 
 public interface IExplorerComponent {
 	
-	File getRoot();
+	IFile getRoot();
 	
-	void setRoot(File f);
+	void setRoot(IFile f);
 	
-	File getCurrentDirectory();
+	IFile getCurrentDirectory();
 	
-	void setCurrentDirectory(File f);
+	void setCurrentDirectory(IFile f);
 	
-	File[] getSelectedFiles();
+	IFile[] getSelectedFiles();
 	
-	File getLastSelected();
-	
-	void setSelectedFiles(File[] selection);
-	
-	void addExplorerComponentListener(ExplorerComponentListener l);
+	IFile getLastSelected();
+
+    void addExplorerComponentListener(ExplorerComponentListener l);
 	
 	void removeExplorerComponentListener(ExplorerComponentListener l);
 	
 	ArrayList<ExplorerComponentListener> getExplorerComponentListeners();
 	
-	void selectionChanged(File lastSelected);
+	void selectionChanged(IFile lastSelected);
+
 }

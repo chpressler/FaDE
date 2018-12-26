@@ -43,7 +43,7 @@
        fy="-29.734715"
        r="16.500000"
        gradientTransform="matrix(-2.193185,-5.372224e-4,-2.626836e-4,0.916667,44.50040,59.29963)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        id="linearGradient8662"
        inkscape:collect="always">
@@ -72,7 +72,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient2309"
        id="radialGradient1441"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(-1.871885e-16,0.843022,-1.020168,-2.265228e-16,46.39357,1.413854)"
        cx="34.663586"
        cy="20.321211"
@@ -83,7 +82,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient8662"
        id="radialGradient1444"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.000000,0.000000,0.000000,0.536723,-1.517764e-15,16.87306)"
        cx="24.837126"
        cy="36.421127"
@@ -94,7 +92,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient8650"
        id="radialGradient10491"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(-3.749427e-16,2.046729,1.557610,2.853404e-16,2.912970,-22.93354)"
        cx="15.987216"
        cy="1.5350308"
@@ -111,7 +108,7 @@
        fy="36.435665"
        r="16.505941"
        gradientTransform="matrix(0.999669,-4.782903e-3,3.785304e-3,0.791668,-0.221863,10.41377)"
-       gradientUnits="userSpaceOnUse" />
+    />
   </defs>
   <sodipodi:namedview
      inkscape:window-y="48"

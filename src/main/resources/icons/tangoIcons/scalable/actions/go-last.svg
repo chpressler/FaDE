@@ -37,7 +37,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient1428"
        id="radialGradient1441"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(0.843022,1.871885e-16,-2.265228e-16,1.020168,4.413860,0.606440)"
        cx="22.588188"
        cy="34.462799"
@@ -69,8 +68,7 @@
          style="stop-color:#ffffff;stop-opacity:0;" />
     </linearGradient>
     <radialGradient
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(2.046729,-3.749427e-16,2.853404e-16,1.557610,-19.66321,2.389970)"
+            gradientTransform="matrix(2.046729,-3.749427e-16,2.853404e-16,1.557610,-19.66321,2.389970)"
        r="17.171415"
        fy="3.0045178"
        fx="18.968266"
@@ -80,8 +78,7 @@
        xlink:href="#linearGradient8650"
        inkscape:collect="always" />
     <radialGradient
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.000000,0.000000,0.000000,0.536723,1.246400e-15,16.87306)"
+            gradientTransform="matrix(1.000000,0.000000,0.000000,0.536723,1.246400e-15,16.87306)"
        r="15.644737"
        fy="36.421127"
        fx="24.837126"

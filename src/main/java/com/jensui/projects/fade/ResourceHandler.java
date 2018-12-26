@@ -6,9 +6,9 @@ public class ResourceHandler {
 	
 	private static volatile ResourceHandler instance = null;
 	
-	private ResourceBundle strings = null;
+	private ResourceBundle strings;
 	
-	private ResourceBundle icons = null;
+	private ResourceBundle icons;
 	
 	private ResourceHandler() {
 		strings = ResourceBundle.getBundle("strings.Strings");

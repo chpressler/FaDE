@@ -48,7 +48,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient3451"
        id="radialGradient3468"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.000000,0.000000,0.000000,0.166667,7.650132e-16,8.709935)"
        cx="25.127777"
        cy="10.451922"
@@ -87,7 +86,6 @@
        fx="29.158466"
        cy="15.720984"
        cx="29.288071"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient2714"
        xlink:href="#linearGradient3179"
        inkscape:collect="always" />
@@ -110,7 +108,7 @@
        r="15.7572"
        fx="25.0527"
        fy="39.5928"
-       gradientUnits="userSpaceOnUse">
+    >
       <stop
          offset="0.0000000"
          style="stop-color:#777777;stop-opacity:1.0000000;"
@@ -159,8 +157,7 @@
          style="stop-color:#ffc66c;stop-opacity:1.0000000;" />
     </linearGradient>
     <radialGradient
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.000000,0.000000,0.000000,0.333333,0.000000,25.71429)"
+            gradientTransform="matrix(1.000000,0.000000,0.000000,0.333333,0.000000,25.71429)"
        r="19.714285"
        fy="38.571430"
        fx="24.714285"
@@ -173,7 +170,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient3050"
        id="linearGradient3384"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(0.356785,-4.136152e-17,4.888137e-17,0.421652,15.59796,22.41694)"
        x1="23.031250"
        y1="24.312500"
@@ -183,7 +179,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient3050"
        id="linearGradient3388"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(0.277603,-9.832923e-2,0.112086,0.340135,19.04250,26.33855)"
        x1="23.377983"
        y1="21.840229"
@@ -193,7 +188,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient3050"
        id="linearGradient3394"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(0.277603,-9.832923e-2,0.112086,0.340135,19.04250,26.33855)"
        x1="23.377983"
        y1="21.840229"

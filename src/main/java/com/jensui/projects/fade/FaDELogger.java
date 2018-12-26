@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 public class FaDELogger {
 
-	public static volatile FaDELogger instance = null;
+	private static volatile FaDELogger instance = null;
 	
 	public static synchronized FaDELogger getInstance() {
 		if(instance == null) {

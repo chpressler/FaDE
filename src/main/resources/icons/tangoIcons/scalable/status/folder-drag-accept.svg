@@ -25,7 +25,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient5060"
        id="radialGradient6719"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(-2.774389,0,0,1.969706,112.7623,-872.8854)"
        cx="605.71429"
        cy="486.64789"
@@ -48,7 +47,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient5060"
        id="radialGradient6717"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(2.774389,0,0,1.969706,-1891.633,-872.8854)"
        cx="605.71429"
        cy="486.64789"
@@ -74,7 +72,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient5048"
        id="linearGradient6715"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(2.774389,0,0,1.969706,-1892.179,-872.8854)"
        x1="302.85715"
        y1="366.64789"
@@ -100,7 +97,7 @@
        y1="37.625"
        x2="19.75"
        y2="14.875"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        id="linearGradient9766">
       <stop
@@ -134,7 +131,7 @@
        fy="41.591846"
        r="19.136078"
        gradientTransform="matrix(1.000000,0.000000,0.000000,0.242494,1.565588e-16,31.50606)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        id="linearGradient148">
       <stop
@@ -183,7 +180,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient335"
        id="linearGradient155"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="scale(1.421537,0.703464)"
        x1="19.116116"
        y1="28.946041"
@@ -193,7 +189,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient148"
        id="linearGradient156"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.535299,0.000000,0.000000,0.651339,3.451418,2.448000)"
        x1="14.899379"
        y1="27.059643"
@@ -203,7 +198,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient137"
        id="linearGradient158"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.462696,0,6.907908e-2,0.683669,4.374078e-18,-1.821459e-17)"
        x1="5.2657914"
        y1="18.725863"
@@ -213,7 +207,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient1789"
        id="radialGradient159"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.015635,0,0.103105,1.000512,1.223963e-19,-8.369458e-2)"
        cx="14.772504"
        cy="9.2099543"
@@ -224,7 +217,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient9766"
        id="linearGradient13162"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1,0,0,1.022118,52.05694,-1.323026)"
        x1="22.175976"
        y1="36.987999"

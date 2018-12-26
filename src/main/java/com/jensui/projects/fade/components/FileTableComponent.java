@@ -1,52 +1,47 @@
 package com.jensui.projects.fade.components;
 
 import com.jensui.projects.fade.FaDE;
+import com.jensui.projects.fade.IFile;
 import com.jensui.projects.fade.controller.FileTableController;
 import com.jensui.projects.fade.model.FileTableModel;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.LayoutManager;
-import java.io.File;
-import java.util.ArrayList;
+import net.miginfocom.swing.MigLayout;
 
-import javax.swing.BorderFactory;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+import javax.activation.ActivationDataFlavor;
+import javax.activation.DataHandler;
+import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
-
-import net.miginfocom.swing.MigLayout;
+import java.awt.*;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.dnd.DragSource;
+import java.util.ArrayList;
 
 public class FileTableComponent extends JPanel implements IExplorerComponent {
 
 	private static final long serialVersionUID = 1L;
 
-	private JTable view = null;
+	private JTable view;
 
-	private FileTableModel model = null;
+    private IFile root;
+	
+	private IFile currentDir;
+	
+	private IFile lastSelected = null;
 
-	private FileTableController controller = null;
-	
-	private File root = null;
-	
-	private File currentDir = null;
-	
-	private File lastSelected = null;
-	
-	private LayoutManager layout = null;
-	
-	private volatile ArrayList<ExplorerComponentListener> listeners = new ArrayList<ExplorerComponentListener>();
+    private final ArrayList<ExplorerComponentListener> listeners = new ArrayList<ExplorerComponentListener>();
 	
 	public FileTableComponent(URLComponent urlc, DriveSelectComponent dsc) {
 //		root = File.listRoots()[0];
 		root = dsc.getSelectedRoot();
 		currentDir = root;
-		model = new FileTableModel(this);
+        FileTableModel model = new FileTableModel(this);
 		view = new JTable(model);
 		view.setShowGrid(false);
+		view.setDragEnabled(true);
+		view.setDropMode(DropMode.INSERT_ROWS);
+		view.setTransferHandler(new TableRowTransferHandler(view));
 //		view.setShowHorizontalLines(false);
 //		view.setShowVerticalLines(true);
 		view.setIntercellSpacing(new Dimension(0, 0));
@@ -119,8 +114,8 @@ public class FileTableComponent extends JPanel implements IExplorerComponent {
 		
 		view.setFillsViewportHeight(true);
 	    view.setAutoCreateRowSorter(true);
-	    
-		controller = new FileTableController(this);
+
+        FileTableController controller = new FileTableController(this);
 		view.addMouseListener(controller);
 		view.addKeyListener(controller);
 		view.getSelectionModel().addListSelectionListener(controller);
@@ -146,8 +141,8 @@ public class FileTableComponent extends JPanel implements IExplorerComponent {
 		jsp.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		jsp.getViewport().add(view);
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
-		layout = new MigLayout("flowy", "0[grow,fill,center]",
-		"[c,grow,fill]");
+        LayoutManager layout = new MigLayout("flowy", "0[grow,fill,center]",
+                "[c,grow,fill]");
 		this.setLayout(layout);
 		this.add(jsp);
 	}
@@ -157,13 +152,13 @@ public class FileTableComponent extends JPanel implements IExplorerComponent {
 	}
 
 	@Override
-	public File getRoot() {
+	public IFile getRoot() {
 		return root;
 	}
 
 	@Override
-	public void setRoot(File f) {
-		if(!f.isDirectory()) {
+	public void setRoot(IFile f) {
+		if(!f.isDir()) {
 			return;
 		}
         if(FaDE.getInstance().getOSType().equals(FaDE.OSType.UNIX)) {
@@ -190,24 +185,24 @@ public class FileTableComponent extends JPanel implements IExplorerComponent {
 	}
 
 	@Override
-	public File getCurrentDirectory() {
+	public IFile getCurrentDirectory() {
 		return currentDir;
 	}
 
 	@Override
-	public File[] getSelectedFiles() {
-		File[] sel = new File[view.getSelectedRowCount()];
+	public IFile[] getSelectedFiles() {
+		IFile[] sel = new IFile[view.getSelectedRowCount()];
 		int n = 0;
 		for(int i : view.getSelectedRows()) {
-			sel[n] = ((File) ((FileTableModel) view.getModel()).getValueAt(i, 0));
+			sel[n] = ((IFile) view.getModel().getValueAt(i, 0));
 			n++;
 		}
 		return sel;
 	}
 
 	@Override
-	public void setCurrentDirectory(File f) {
-		if(!f.isDirectory()) {
+	public void setCurrentDirectory(IFile f) {
+		if(!f.isDir()) {
 			return;
 		}
 		currentDir = f;
@@ -220,20 +215,16 @@ public class FileTableComponent extends JPanel implements IExplorerComponent {
 		validate();
 	}
 
-	@Override
-	public void setSelectedFiles(File[] selection) {
-	}
-
-	private File getRoot(File f) {
-		if(f.getParentFile() == null) {
+	private IFile getRoot(IFile f) {
+		if(f.getParent() == null) {
 			return f;
 		} else {
-			return getRoot(f.getParentFile());
+			return getRoot(f.getParent());
 		}
 	}
 
 	@Override
-	public void selectionChanged(File f) {
+	public void selectionChanged(IFile f) {
 		lastSelected = f;
 		for(ExplorerComponentListener l : listeners) {
 			l.selectionChanged(new ExplorerComponentEvent(this));
@@ -241,7 +232,7 @@ public class FileTableComponent extends JPanel implements IExplorerComponent {
 	}
 
 	@Override
-	public File getLastSelected() {
+	public IFile getLastSelected() {
 		return lastSelected;
 	}
 
@@ -250,4 +241,63 @@ public class FileTableComponent extends JPanel implements IExplorerComponent {
 		return listeners;
 	}
 	
+}
+
+class TableRowTransferHandler extends TransferHandler {
+	private final DataFlavor localObjectFlavor = new ActivationDataFlavor(Integer.class, "application/x-java-Integer;class=java.lang.Integer", "Integer Row Index");
+	private JTable           table             = null;
+
+	public TableRowTransferHandler(JTable table) {
+		this.table = table;
+	}
+
+	@Override
+	protected Transferable createTransferable(JComponent c) {
+		assert (c == table);
+		return new DataHandler(new Integer(table.getSelectedRow()), localObjectFlavor.getMimeType());
+	}
+
+	@Override
+	public boolean canImport(TransferHandler.TransferSupport info) {
+		boolean b = info.getComponent() == table && info.isDrop() && info.isDataFlavorSupported(localObjectFlavor);
+		table.setCursor(b ? DragSource.DefaultMoveDrop : DragSource.DefaultMoveNoDrop);
+		return b;
+	}
+
+	@Override
+	public int getSourceActions(JComponent c) {
+		return TransferHandler.COPY_OR_MOVE;
+	}
+
+	@Override
+	public boolean importData(TransferHandler.TransferSupport info) {
+		JTable target = (JTable) info.getComponent();
+		JTable.DropLocation dl = (JTable.DropLocation) info.getDropLocation();
+		int index = dl.getRow();
+		int max = table.getModel().getRowCount();
+		if (index < 0 || index > max)
+			index = max;
+		target.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		try {
+			Integer rowFrom = (Integer) info.getTransferable().getTransferData(localObjectFlavor);
+			if (rowFrom != -1 && rowFrom != index) {
+//				((Reorderable)table.getModel()).reorder(rowFrom, index);
+//				if (index > rowFrom)
+//					index--;
+//				target.getSelectionModel().addSelectionInterval(index, index);
+//				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	protected void exportDone(JComponent c, Transferable t, int act) {
+		if ((act == TransferHandler.MOVE) || (act == TransferHandler.NONE)) {
+			table.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		}
+	}
+
 }

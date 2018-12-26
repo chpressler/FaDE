@@ -22,7 +22,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient5060"
        id="radialGradient5031"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(-2.774389,0,0,1.969706,112.7623,-872.8854)"
        cx="605.71429"
        cy="486.64789"
@@ -45,7 +44,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient5060"
        id="radialGradient5029"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(2.774389,0,0,1.969706,-1891.633,-872.8854)"
        cx="605.71429"
        cy="486.64789"
@@ -71,7 +69,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient5048"
        id="linearGradient5027"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(2.774389,0,0,1.969706,-1892.179,-872.8854)"
        x1="302.85715"
        y1="366.64789"
@@ -121,7 +118,7 @@
        fy="30.857143"
        r="15.571428"
        gradientTransform="matrix(1.000000,0.000000,0.000000,0.651376,4.638648e-15,10.75754)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        id="linearGradient15218">
       <stop
@@ -145,7 +142,6 @@
        y1="18.992140"
        x2="35.785294"
        y2="39.498238"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.060837,0.000000,0.000000,0.987595,4.641161,4.108291)" />
     <linearGradient
        inkscape:collect="always"
@@ -167,7 +163,6 @@
        y1="26.696676"
        x2="30.811172"
        y2="42.007351"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(0.993566,0.000000,0.000000,1.000000,6.219859,4.033411)" />
     <linearGradient
        inkscape:collect="always"
@@ -189,7 +184,6 @@
        y1="39.15625"
        x2="39.0625"
        y2="42.0625"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="translate(6.161836,4.033411)" />
     <linearGradient
        id="linearGradient2224">
@@ -206,7 +200,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient15218"
        id="linearGradient2240"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.342704,0.000000,0.000000,1.235378,-8.219611,-6.577189)"
        x1="20.794008"
        y1="18.378813"
@@ -220,7 +213,6 @@
        y1="26.422195"
        x2="2.3941064"
        y2="26.422195"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(-1.188000,0.000000,0.000000,1.188000,38.20277,4.174916)" />
   </defs>
   <sodipodi:namedview

@@ -1,0 +1,525 @@
+@startuml
+
+title __FADE's Class Diagram__\n
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class ActionsComponent {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class ChartComponent {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    class ConnectorManager {
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class DiskUsageImageMaker {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class DriveButton {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class DriveSelectComponent {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.connector.dropbox {
+      class DropBoxConnector {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class ExplorerComponentEvent {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      interface ExplorerComponentListener {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.connector.file {
+      class FIleCopyCommand {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.actions {
+      class FTPAction {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    class FaDE {
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class FaDEButton {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class FaDEComponent {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      interface FaDEComponentSelectionListener {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    class FaDELogger {
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class FaDEMenu {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class FaDEStatusBar {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class FaDEToolBar {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    class FaDEUncaughtExceptionHandler {
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.connector.file {
+      class File {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.connector.file {
+      class FileConnector {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.actions {
+      class FileCopyAction {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.actions {
+      class FileDeleteAction {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.connector.file {
+      class FileDeleteCommand {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.controller {
+      class FileListController {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.actions {
+      class FileMKDIRAction {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.actions {
+      class FileMoveAction {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.actions {
+      class FileNewAction {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.actions {
+      class FileRenameAction {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.connector.file {
+      class FileRenameCommand {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class FileTableCellEditor {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class FileTableCellRenderer {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class FileTableComponent {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.controller {
+      class FileTableController {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.model {
+      class FileTableModel {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class FileThumbnailComponent {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class FileTreeCellRenderer {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class FileTreeComponent {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.controller {
+      class FileTreeController {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.model {
+      class FileTreeModel {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    interface IConnector {
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    interface ICopyCommand {
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    interface IDeleteCommand {
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      interface IExplorerComponent {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    interface IFile {
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    interface IRenameCommand {
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.actions {
+      class MoveBackAction {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.actions {
+      class MoveForwardAction {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.actions {
+      class RefreshAction {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    class ResourceHandler {
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.actions {
+      class SearchAction {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.actions {
+      class SubmitErrorAction {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class URLComponent {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      class ViewSwitcherComponent {
+      }
+    }
+  }
+  
+
+  package com.jensui.projects.fade {
+    package com.jensui.projects.fade.components {
+      interface ViewSwitcherListener {
+      }
+    }
+  }
+  
+
+  ActionsComponent -up-|> JPanel
+  ChartComponent -up-|> JFrame
+  DriveButton -up-|> JToggleButton
+  DriveButton o-- IFile : f
+  DriveSelectComponent -up-|> ExplorerComponentListener
+  DriveSelectComponent -up-|> JPanel
+  DriveSelectComponent o-- FaDEComponent : c
+  DriveSelectComponent o-- DriveButton : currentSelected
+  DropBoxConnector -up-|> IConnector
+  ExplorerComponentEvent -up-|> EventObject
+  FIleCopyCommand -up-|> ICopyCommand
+  FTPAction -up-|> AbstractAction
+  FaDE -up-|> FaDEComponentSelectionListener
+  FaDE -up-|> JFrame
+  FaDE o-- FaDEComponent : left
+  FaDE o-- FaDEComponent : right
+  FaDEButton -up-|> JComponent
+  FaDEComponent -up-|> JPanel
+  FaDEComponent o-- DriveSelectComponent : dsc
+  FaDEComponent o-- ViewSwitcherComponent : vsc
+  FaDEComponent o-- URLComponent : urlc
+  FaDEComponent o-- IExplorerComponent : fileComponent
+  FaDEMenu -up-|> JMenuBar
+  FaDEStatusBar -up-|> ExplorerComponentListener
+  FaDEStatusBar -up-|> JPanel
+  FaDEStatusBar o-- IExplorerComponent : left
+  FaDEStatusBar o-- IExplorerComponent : right
+  FaDEToolBar -up-|> JToolBar
+  FaDEUncaughtExceptionHandler -up-|> UncaughtExceptionHandler
+  File -up-|> IFile
+  File o-- IConnector : connector
+  FileConnector -up-|> IConnector
+  FileCopyAction -up-|> AbstractAction
+  FileDeleteAction -up-|> AbstractAction
+  FileDeleteCommand -up-|> IDeleteCommand
+  FileMKDIRAction -up-|> AbstractAction
+  FileMoveAction -up-|> AbstractAction
+  FileNewAction -up-|> AbstractAction
+  FileRenameAction -up-|> AbstractAction
+  FileRenameCommand -up-|> IRenameCommand
+  FileTableCellEditor -up-|> DefaultCellEditor
+  FileTableCellRenderer -up-|> TableCellRenderer
+  FileTableCellRenderer -up-|> Serializable
+  FileTableCellRenderer -up-|> JLabel
+  FileTableCellRenderer o-- IExplorerComponent : c
+  FileTableComponent -up-|> IExplorerComponent
+  FileTableComponent -up-|> JPanel
+  FileTableComponent o-- IFile : root
+  FileTableComponent o-- IFile : currentDir
+  FileTableComponent o-- IFile : lastSelected
+  FileTableController -up-|> MouseListener
+  FileTableController -up-|> KeyListener
+  FileTableController -up-|> ListSelectionListener
+  FileTableController o-- IExplorerComponent : c
+  FileTableModel -up-|> TableModel
+  FileTableModel o-- IExplorerComponent : c
+  FileThumbnailComponent -up-|> IExplorerComponent
+  FileThumbnailComponent -up-|> JPanel
+  FileTreeCellRenderer -up-|> TreeCellRenderer
+  FileTreeCellRenderer -up-|> JLabel
+  FileTreeComponent -up-|> IExplorerComponent
+  FileTreeComponent -up-|> JPanel
+  FileTreeComponent o-- IConnector : connector
+  FileTreeComponent o-- FileTreeController : controller
+  FileTreeComponent o-- IFile : root
+  FileTreeComponent o-- IFile : currentDir
+  FileTreeComponent o-- IFile : lastSelected
+  FileTreeController -up-|> MouseListener
+  FileTreeController -up-|> KeyListener
+  FileTreeController -up-|> TreeModelListener
+  FileTreeController -up-|> TreeSelectionListener
+  FileTreeController o-- IExplorerComponent : c
+  FileTreeModel -up-|> TreeModel
+  FileTreeModel o-- IExplorerComponent : c
+  MoveBackAction -up-|> AbstractAction
+  MoveForwardAction -up-|> AbstractAction
+  RefreshAction -up-|> AbstractAction
+  SearchAction -up-|> AbstractAction
+  SubmitErrorAction -up-|> AbstractAction
+  URLComponent -up-|> ExplorerComponentListener
+  URLComponent -up-|> JPanel
+  URLComponent o-- FaDEComponent : fadeComponent
+  ViewSwitcherComponent -up-|> JPanel
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

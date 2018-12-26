@@ -1,5 +1,6 @@
 package com.jensui.projects.fade.actions;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -9,9 +10,7 @@ import java.net.URLConnection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.swing.AbstractAction;
-
-public class SubmitErrorAction extends AbstractAction {
+class SubmitErrorAction extends AbstractAction {
 	
 	private static final long serialVersionUID = 1L;
 

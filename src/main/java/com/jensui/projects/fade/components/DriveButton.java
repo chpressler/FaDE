@@ -1,48 +1,41 @@
 package com.jensui.projects.fade.components;
 
-import java.awt.AlphaComposite;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
+import com.jensui.projects.fade.IFile;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.io.File;
 
-import javax.swing.JToggleButton;
-
-public class DriveButton extends JToggleButton {
+class DriveButton extends JToggleButton {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private File f;
+	private IFile f;
 	
 	private boolean isPressed = false;
 	
 	private boolean mouseOver = false;
+
+    private final Color freeSpaceUpperSelected;
 	
-	private int arcHeight = 10;
+	private final Color freeSpaceLowerSelected;
 	
-	private Color freeSpaceUpperSelected;
+	private final Color freeSpaceUpper;
 	
-	private Color freeSpaceLowerSelected;
+	private final Color freeSpaceLower;
 	
-	private Color freeSpaceUpper;
+	private final Color occSpaceUpperSelected;
 	
-	private Color freeSpaceLower;
+	private final Color occSpaceLowerSelected;
 	
-	private Color occSpaceUpperSelected;
+	private final Color occSpaceUpper;
 	
-	private Color occSpaceLowerSelected;
+	private final Color occSpaceLower;
 	
-	private Color occSpaceUpper;
-	
-	private Color occSpaceLower;
-	
-	public DriveButton(File f) {
-		super(f.getAbsolutePath());
+	public DriveButton(IFile f) {
+		super(f.getURI().toString());
 		this.f = f;
 		
 		freeSpaceUpper = new Color(200, 200, 200);
@@ -92,7 +85,8 @@ public class DriveButton extends JToggleButton {
 	public void paint(Graphics g) {
 //		super.paint(g);
 		Graphics2D g2d = (Graphics2D) g;
-		if(isSelected()) {
+        int arcHeight = 10;
+        if(isSelected()) {
 			long total = f.getTotalSpace();
 			long free = f.getFreeSpace();
 			long used = total - free;
@@ -119,7 +113,7 @@ public class DriveButton extends JToggleButton {
 			Font font = new Font("Arial", Font.BOLD, 15);
 			g2d.setFont(font);
 			float fl = (getHeight() - g2d.getFontMetrics(font).getHeight() / 2f);
-			g2d.drawString(f.getAbsolutePath(), 10f, fl);
+			g2d.drawString(f.getURI().getPath(), 10f, fl);
 			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.6f));	
 		} else {
 			long total = f.getTotalSpace();
@@ -148,7 +142,7 @@ public class DriveButton extends JToggleButton {
 			Font font = new Font("Arial", Font.BOLD, 15);
 			g2d.setFont(font);
 			float fl = (getHeight() - g2d.getFontMetrics(font).getHeight() / 2f);
-			g2d.drawString(f.getAbsolutePath(), 10f, fl);
+			g2d.drawString(f.getURI().getPath(), 10f, fl);
 			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.6f));
 		}
 		if(mouseOver) {
@@ -156,11 +150,11 @@ public class DriveButton extends JToggleButton {
 		}
 	}
 
-	public File getFile() {
+	public IFile getFile() {
 		return f;
 	}
 
-	public void setFile(File f) {
+	public void setFile(IFile f) {
 		this.f = f;
 	}
 	

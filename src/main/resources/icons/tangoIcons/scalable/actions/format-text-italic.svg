@@ -16,14 +16,13 @@
    inkscape:version="0.43+devel"
    sodipodi:docbase="/home/jimmac/src/cvs/tango-icon-theme/scalable/actions"
    sodipodi:docname="format-text-italic.svg"
-   version="1.0">
+>
   <defs
      id="defs1308">
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient8662"
        id="radialGradient2494"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1,0,0,0.536723,6.419148e-15,16.87306)"
        cx="24.837126"
        cy="36.421127"
@@ -103,7 +102,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient2233"
        id="linearGradient2327"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="translate(5.000006,1)"
        x1="30.123499"
        y1="28.5"
@@ -113,7 +111,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient2834"
        id="linearGradient2330"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="translate(6.000004,1)"
        x1="20.846664"
        y1="15.432576"
@@ -123,7 +120,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient3682"
        id="linearGradient2333"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="translate(6.000004,1)"
        x1="29.033241"
        y1="36.44521"
@@ -133,7 +129,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient2243"
        id="linearGradient2335"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="translate(6.000004,4)"
        x1="22.125"
        y1="34.962811"
@@ -143,7 +138,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient8662"
        id="radialGradient2499"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1,0,0,0.536723,1.528049e-13,16.87306)"
        cx="24.837126"
        cy="36.421127"
@@ -154,7 +148,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient8662"
        id="radialGradient2503"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1,0,0,0.536723,-2.399233e-14,16.87306)"
        cx="24.837126"
        cy="36.421127"
@@ -169,7 +162,6 @@
        y1="42.001186"
        x2="27.0625"
        y2="37.981052"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1,0,0,0.555556,0,18.66667)" />
   </defs>
   <sodipodi:namedview

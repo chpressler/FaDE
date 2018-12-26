@@ -14,7 +14,6 @@
    id="svg7854"
    sodipodi:version="0.32"
    inkscape:version="0.45+devel"
-   version="1.0"
    sodipodi:docname="software-update-available.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
@@ -65,7 +64,7 @@
        fy="38.5"
        r="13"
        gradientTransform="matrix(1,0,0,0.5,0,19.25)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <filter
        inkscape:collect="always"
        x="-0.17349398"
@@ -82,7 +81,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient5190"
        id="radialGradient5200"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(0,-1.2519025,47.292244,0,-1418.0196,57.3867)"
        cx="21.525126"
        cy="30.439341"
@@ -97,7 +95,7 @@
        y1="11.34375"
        x2="22.109375"
        y2="49.612667"
-       gradientUnits="userSpaceOnUse" />
+    />
   </defs>
   <sodipodi:namedview
      id="base"

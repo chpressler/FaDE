@@ -25,7 +25,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient5060"
        id="radialGradient6719"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(-2.774389,0,0,1.969706,112.7623,-872.8854)"
        cx="605.71429"
        cy="486.64789"
@@ -48,7 +47,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient5060"
        id="radialGradient6717"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(2.774389,0,0,1.969706,-1891.633,-872.8854)"
        cx="605.71429"
        cy="486.64789"
@@ -74,7 +72,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient5048"
        id="linearGradient6715"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(2.774389,0,0,1.969706,-1892.179,-872.8854)"
        x1="302.85715"
        y1="366.64789"
@@ -138,7 +135,6 @@
        fx="24.500004"
        fy="29.500004"
        r="15.095438"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(2.154119,-4.677245e-16,4.677245e-16,2.154119,-76.77594,-33.5971)" />
     <radialGradient
        inkscape:collect="always"
@@ -150,7 +146,7 @@
        fy="39.8125"
        r="17.375"
        gradientTransform="matrix(1,0,0,0.399281,0,23.91614)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4728"
@@ -159,7 +155,6 @@
        y1="12.595438"
        x2="24.095442"
        y2="34.09544"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(0.993678,0,0,0.993678,-47.94311,1.037934)" />
     <linearGradient
        inkscape:collect="always"
@@ -169,12 +164,11 @@
        y1="7.9334393"
        x2="9.0674801"
        y2="6.7843909"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4750"
        id="linearGradient4760"
-       gradientUnits="userSpaceOnUse"
        x1="38.292995"
        y1="6.7174492"
        x2="39.4375"

@@ -39,7 +39,6 @@
        fx="29.158466"
        cy="15.720984"
        cx="29.288071"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient2714"
        xlink:href="#linearGradient3290"
        inkscape:collect="always" />
@@ -55,8 +54,7 @@
          style="stop-color:#edd400;stop-opacity:1.0000000;" />
     </linearGradient>
     <radialGradient
-       gradientUnits="userSpaceOnUse"
-       fy="39.5928"
+            fy="39.5928"
        fx="25.0527"
        r="15.7572"
        cy="39.5928"
@@ -120,7 +118,7 @@
        fy="38.571430"
        r="19.714285"
        gradientTransform="matrix(1.000000,0.000000,0.000000,0.333333,0.000000,25.71429)"
-       gradientUnits="userSpaceOnUse" />
+    />
   </defs>
   <sodipodi:namedview
      fill="#edd400"

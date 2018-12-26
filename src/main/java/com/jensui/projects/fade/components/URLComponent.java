@@ -1,37 +1,28 @@
 package com.jensui.projects.fade.components;
 
-import java.awt.Color;
-import java.awt.LayoutManager;
+import com.jensui.projects.fade.IFile;
+import net.miginfocom.swing.MigLayout;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
-
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import net.miginfocom.swing.MigLayout;
 
 public class URLComponent extends JPanel implements ExplorerComponentListener {
 	
 	private static final long serialVersionUID = 1L;
 
-	private FaDEComponent fadeComponent = null;
+	private FaDEComponent fadeComponent;
 	
-	private JTextField textField = null;
-	
-	private JButton button = null;
-	
-	private LayoutManager layout = null;
-	
-	public URLComponent(FaDEComponent fc) {
+	private JTextField textField;
+
+    public URLComponent(FaDEComponent fc) {
 		setOpaque(false);
 		fadeComponent = fc;
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
-		layout = new MigLayout("", "[grow,fill][pref!]", "0[]");
+        LayoutManager layout = new MigLayout("", "[grow,fill][pref!]", "0[]");
 //		fc.getIExplorerComponent().addExplorerComponentListener(this);
 //		fadeComponent.getIExplorerComponent().getCurrentDirectory().getAbsolutePath()
 		textField = new JTextField();
@@ -43,14 +34,14 @@ public class URLComponent extends JPanel implements ExplorerComponentListener {
 			@Override
 			public void keyReleased(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					File f = new File(textField.getText());
-					if (f.exists()) {
-						if(getRoot(f).getAbsolutePath() != fadeComponent.getIExplorerComponent().getRoot().getAbsolutePath()) {
+					IFile f = fadeComponent.getIExplorerComponent().getCurrentDirectory().getConnector().getFile(textField.getText());
+					if (f != null) {
+						if(!getRoot(f).getURI().getPath().equals(fadeComponent.getIExplorerComponent().getRoot().getURI().getPath())) {
 							fadeComponent.getIExplorerComponent().setRoot(f);
 						}
 						fadeComponent.getIExplorerComponent().setCurrentDirectory(f);
 					} else {
-						textField.setText(fadeComponent.getIExplorerComponent().getCurrentDirectory().getAbsolutePath());
+						textField.setText(fadeComponent.getIExplorerComponent().getCurrentDirectory().getURI().getPath());
 					}
 				}
 			}
@@ -58,18 +49,18 @@ public class URLComponent extends JPanel implements ExplorerComponentListener {
 			public void keyTyped(KeyEvent e) {
 				
 			}});
-		button = new JButton("go");
+        JButton button = new JButton("go");
 		button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				File f = new File(textField.getText());
-				if (f.exists()) {
-					if(getRoot(f).getAbsolutePath() != fadeComponent.getIExplorerComponent().getRoot().getAbsolutePath()) {
+				IFile f = fadeComponent.getIExplorerComponent().getCurrentDirectory().getConnector().getFile(textField.getText());
+				if (f != null) {
+					if(!getRoot(f).getURI().getPath().equals(fadeComponent.getIExplorerComponent().getRoot().getURI().getPath())) {
 						fadeComponent.getIExplorerComponent().setRoot(f);
 					}
 					fadeComponent.getIExplorerComponent().setCurrentDirectory(f);
 				} else {
-					textField.setText(fadeComponent.getIExplorerComponent().getCurrentDirectory().getAbsolutePath());
+					textField.setText(fadeComponent.getIExplorerComponent().getCurrentDirectory().getURI().getPath());
 				}
 			}});
 		setLayout(layout);
@@ -93,27 +84,27 @@ public class URLComponent extends JPanel implements ExplorerComponentListener {
 		return textField;
 	}
 	
-	private File getRoot(File f) {
-		if(f.getParentFile() == null) {
+	private IFile getRoot(IFile f) {
+		if(f.getParent() == null) {
 			return f;
 		} else {
-			return getRoot(f.getParentFile());
+			return getRoot(f.getParent());
 		}
 	}
 
 	@Override
 	public void currentDirectoryPathChanged(ExplorerComponentEvent e) {
-		textField.setText(((IExplorerComponent) e.getSource()).getCurrentDirectory().getAbsolutePath());
+		textField.setText(((IExplorerComponent) e.getSource()).getCurrentDirectory().getURI().getPath());
 	}
 
 	@Override
 	public void rootChanged(ExplorerComponentEvent e) {
-		textField.setText(((IExplorerComponent) e.getSource()).getRoot().getAbsolutePath());
+		textField.setText(((IExplorerComponent) e.getSource()).getRoot().getURI().getPath());
 	}
 
 	@Override
 	public void selectionChanged(ExplorerComponentEvent e) {
-		textField.setText(((IExplorerComponent) e.getSource()).getLastSelected().getAbsolutePath());
+		textField.setText(((IExplorerComponent) e.getSource()).getLastSelected().getURI().getPath());
 	}
 
 }

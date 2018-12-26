@@ -70,8 +70,7 @@
          style="stop-color:#000000;stop-opacity:0;" />
     </linearGradient>
     <radialGradient
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.000000,0.000000,0.000000,0.536723,-1.160225e-14,16.87306)"
+            gradientTransform="matrix(1.000000,0.000000,0.000000,0.536723,-1.160225e-14,16.87306)"
        r="15.644737"
        fy="36.421127"
        fx="24.837126"
@@ -88,7 +87,6 @@
        y1="16.642263"
        x2="19.377108"
        y2="12.448164"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.171926,0.000000,0.000000,1.171926,-4.674553,-1.427903)" />
     <linearGradient
        inkscape:collect="always"
@@ -98,7 +96,6 @@
        y1="15.230618"
        x2="10.022297"
        y2="23.105061"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.171926,0.000000,0.000000,1.171926,-4.674553,-1.427903)" />
     <linearGradient
        inkscape:collect="always"
@@ -108,7 +105,7 @@
        y1="24.589863"
        x2="6.1056361"
        y2="29.839863"
-       gradientUnits="userSpaceOnUse" />
+    />
   </defs>
   <sodipodi:namedview
      inkscape:window-y="0"

@@ -16,7 +16,7 @@
    inkscape:version="0.43+devel"
    sodipodi:docbase="/home/jimmac/src/cvs/tango-icon-theme/scalable/actions"
    sodipodi:docname="format-text-bold.svg"
-   version="1.0">
+>
   <defs
      id="defs1308">
     <linearGradient
@@ -92,7 +92,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient3682"
        id="linearGradient2475"
-       gradientUnits="userSpaceOnUse"
        x1="29.122221"
        y1="33.438889"
        x2="14.296363"
@@ -101,7 +100,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient2243"
        id="linearGradient2477"
-       gradientUnits="userSpaceOnUse"
        x1="19.988434"
        y1="34.98325"
        x2="19.988434"
@@ -110,7 +108,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient2834"
        id="linearGradient2479"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="translate(0,-3)"
        x1="19.891792"
        y1="16.114628"
@@ -120,7 +117,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient2233"
        id="linearGradient2481"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="translate(-1,-4)"
        x1="25"
        y1="27.5"
@@ -130,7 +126,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient8662"
        id="radialGradient2490"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1,0,0,0.536723,3.750475e-14,16.87306)"
        cx="24.837126"
        cy="36.421127"
@@ -141,7 +136,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient8662"
        id="radialGradient2494"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1,0,0,0.536723,6.419148e-15,16.87306)"
        cx="24.837126"
        cy="36.421127"
@@ -156,7 +150,6 @@
        y1="42.25"
        x2="24"
        y2="36.615528"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(0.97619,0,0,0.406377,0.571429,24.97647)" />
   </defs>
   <sodipodi:namedview

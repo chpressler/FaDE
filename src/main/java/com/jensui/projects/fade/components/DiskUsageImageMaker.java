@@ -30,7 +30,7 @@ public class DiskUsageImageMaker {
 		return instance;
 	}
 	
-	public Icon getIcon(Dimension d, File f) throws IOException {
+	public Icon getIcon(Dimension d, File f) {
 		
 		long total = f.getTotalSpace();
 		long free = f.getFreeSpace();
@@ -61,12 +61,11 @@ public class DiskUsageImageMaker {
 		float fl = (d.height - g2d.getFontMetrics(font).getHeight() / 2f);
 		g2d.drawString(f.getAbsolutePath(), 10f, fl);
 		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.6f));
-		Icon icon = new ImageIcon(bi);
-		
-		return icon;
+
+        return new ImageIcon(bi);
 	}
 	
-	public BufferedImage getImage(Dimension dim, File f) throws IOException {
+	public BufferedImage getImage(Dimension dim, File f) {
 		
 		long total = f.getTotalSpace();
 		long free = f.getFreeSpace();

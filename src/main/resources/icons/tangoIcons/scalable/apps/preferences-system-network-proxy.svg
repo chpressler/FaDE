@@ -30,8 +30,7 @@
          style="stop-color:#181818;stop-opacity:1.0000000;" />
     </linearGradient>
     <radialGradient
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.008999,2.228444e-16,-2.944138e-16,1.318829,-111.5197,-18.76722)"
+            gradientTransform="matrix(1.008999,2.228444e-16,-2.944138e-16,1.318829,-111.5197,-18.76722)"
        r="16.321514"
        fy="40.545052"
        fx="93.780037"
@@ -54,7 +53,6 @@
     </linearGradient>
     <linearGradient
        gradientTransform="matrix(0.496216,0,0,0.326467,-39.19298,19.71465)"
-       gradientUnits="userSpaceOnUse"
        y2="28.112619"
        x2="30.935921"
        y1="43.757359"
@@ -74,8 +72,7 @@
          style="stop-color:#ababab;stop-opacity:1.0000000;" />
     </linearGradient>
     <linearGradient
-       gradientUnits="userSpaceOnUse"
-       y2="27.759069"
+            y2="27.759069"
        x2="18.031221"
        y1="19.804117"
        x1="46.845825"
@@ -95,8 +92,7 @@
          id="stop9872" />
     </linearGradient>
     <radialGradient
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(-1.258615,2.415172e-18,1.185252e-14,0.666552,57.40125,8.044513)"
+            gradientTransform="matrix(-1.258615,2.415172e-18,1.185252e-14,0.666552,57.40125,8.044513)"
        r="9.7227182"
        fy="7.1396070"
        fx="27.883883"
@@ -119,7 +115,6 @@
     </linearGradient>
     <linearGradient
        gradientTransform="matrix(-0.458294,0,0,0.458294,38.28479,11.28017)"
-       gradientUnits="userSpaceOnUse"
        y2="24.764584"
        x2="34.007416"
        y1="19.107729"
@@ -139,8 +134,7 @@
          style="stop-color:#9e9e9e;stop-opacity:1.0000000;" />
     </linearGradient>
     <linearGradient
-       gradientUnits="userSpaceOnUse"
-       y2="18.064039"
+            y2="18.064039"
        x2="33.710651"
        y1="21.511185"
        x1="31.078955"
@@ -227,7 +221,7 @@
        fx="18.247644"
        fy="15.716079"
        r="29.993349"
-       gradientUnits="userSpaceOnUse" />
+    />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4114"
@@ -238,7 +232,7 @@
        fx="15.115514"
        fy="63.965388"
        r="12.289036"
-       gradientUnits="userSpaceOnUse" />
+    />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4126"
@@ -249,7 +243,7 @@
        fx="15.601279"
        fy="12.142302"
        r="43.526714"
-       gradientUnits="userSpaceOnUse" />
+    />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4350"
@@ -260,7 +254,7 @@
        fx="11.826907"
        fy="10.476453"
        r="32.664848"
-       gradientUnits="userSpaceOnUse" />
+    />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4750"
@@ -271,7 +265,7 @@
        fx="18.934305"
        fy="17.810213"
        r="40.692665"
-       gradientUnits="userSpaceOnUse" />
+    />
     <radialGradient
        r="40.692665"
        fy="17.810213"
@@ -279,7 +273,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1460"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -290,7 +283,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1462"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -301,7 +293,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1466"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -312,7 +303,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1468"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -323,7 +313,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1470"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -334,7 +323,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1474"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -345,7 +333,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1476"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -356,7 +343,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1478"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -367,7 +353,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1482"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -378,7 +363,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1484"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -389,7 +373,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1486"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -400,7 +383,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1490"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -411,7 +393,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1492"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -422,7 +403,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1494"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -433,7 +413,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1498"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -444,7 +423,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1500"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -455,7 +433,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1502"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -466,7 +443,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1506"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -477,7 +453,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1508"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -488,7 +463,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1510"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -499,7 +473,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1514"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -510,7 +483,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1516"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -521,7 +493,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1518"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -532,7 +503,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1522"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -543,7 +513,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1524"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -554,7 +523,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1526"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -565,7 +533,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1528"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -576,7 +543,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1530"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -587,7 +553,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1532"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -598,7 +563,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1534"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -609,7 +573,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1536"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -620,7 +583,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1538"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -631,7 +593,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1540"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -642,7 +603,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1542"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -653,7 +613,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1544"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -664,7 +623,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1546"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -675,7 +633,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1550"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -686,7 +643,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1552"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -697,7 +653,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1554"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />
@@ -708,7 +663,6 @@
        cy="17.486208"
        cx="18.633780"
        gradientTransform="scale(1.036822,0.964486)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient1558"
        xlink:href="#linearGradient4750"
        inkscape:collect="always" />

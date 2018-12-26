@@ -16,7 +16,7 @@
    height="48"
    sodipodi:docbase="/home/jimmac/gfx/ximian/tango-icon-theme/scalable/emblems"
    sodipodi:docname="emblem-favorites.svg"
-   version="1.0">
+>
   <defs
      id="defs3">
     <linearGradient
@@ -63,7 +63,7 @@
        x2="7.5337296"
        y2="8.8090458"
        gradientTransform="scale(1.365022,0.732589)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        id="linearGradient6621">
       <stop
@@ -84,7 +84,7 @@
        x2="12.849945"
        y2="12.239423"
        gradientTransform="matrix(0.946979,0.000000,0.000000,0.487322,3.734953,4.049714)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient6621"
@@ -94,12 +94,11 @@
        x2="6.3578372"
        y2="6.1003184"
        gradientTransform="matrix(2.012297,0.000000,0.000000,1.079974,0.835129,-1.340661)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient6621"
        id="linearGradient121"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(2.151235,0.000000,0.000000,1.154539,-0.778091,-3.220331)"
        x1="18.711395"
        y1="34.807064"
@@ -115,7 +114,7 @@
        fy="25.53125"
        r="9.6875"
        gradientTransform="matrix(1.000000,0.000000,0.000000,0.351613,9.380517e-16,16.55413)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient3111"
@@ -124,7 +123,6 @@
        y1="29.173397"
        x2="17.444614"
        y2="-6.8890476"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(0.903401,0.000000,0.000000,0.903401,2.335437,2.177737)" />
   </defs>
   <sodipodi:namedview

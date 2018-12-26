@@ -110,8 +110,7 @@
          style="stop-color:#909090;stop-opacity:1.0000000;" />
     </linearGradient>
     <radialGradient
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,0.619469,2.818492e-15,12.30737)"
+            gradientTransform="matrix(1,0,0,0.619469,2.818492e-15,12.30737)"
        r="22.829447"
        fy="32.342636"
        fx="24.344677"
@@ -121,8 +120,7 @@
        xlink:href="#linearGradient11607"
        inkscape:collect="always" />
     <linearGradient
-       gradientUnits="userSpaceOnUse"
-       y2="15.069027"
+            y2="15.069027"
        x2="23.991123"
        y1="6.5837460"
        x1="23.991123"
@@ -131,7 +129,6 @@
        inkscape:collect="always" />
     <linearGradient
        gradientTransform="matrix(0.771415,0,0,1,5.848417,1)"
-       gradientUnits="userSpaceOnUse"
        y2="56.399807"
        x2="16.002489"
        y1="2.4829133"
@@ -140,8 +137,7 @@
        xlink:href="#linearGradient11635"
        inkscape:collect="always" />
     <radialGradient
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.840529,0,0,0.367351,4.170553,27.37887)"
+            gradientTransform="matrix(0.840529,0,0,0.367351,4.170553,27.37887)"
        r="6.4192040"
        fy="46.026909"
        fx="25.754154"
@@ -151,8 +147,7 @@
        xlink:href="#linearGradient11937"
        inkscape:collect="always" />
     <linearGradient
-       gradientUnits="userSpaceOnUse"
-       y2="7.1877394"
+            y2="7.1877394"
        x2="23.991123"
        y1="12.830256"
        x1="23.991123"
@@ -166,13 +161,11 @@
        cy="14.245288"
        cx="20.588579"
        gradientTransform="matrix(1.866374,-5.50505e-25,1.638067e-24,2.305134,-16.99169,-19.0131)"
-       gradientUnits="userSpaceOnUse"
        id="radialGradient12258"
        xlink:href="#linearGradient11597"
        inkscape:collect="always" />
     <linearGradient
-       gradientUnits="userSpaceOnUse"
-       y2="-1.0000000"
+            y2="-1.0000000"
        x2="36.543125"
        y1="4.3750000"
        x1="35.743351"

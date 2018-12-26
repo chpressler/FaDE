@@ -1,17 +1,17 @@
 package com.jensui.projects.fade.model;
 
-import java.io.File;
+import com.jensui.projects.fade.IFile;
+import com.jensui.projects.fade.components.IExplorerComponent;
 
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
-
-import com.jensui.projects.fade.components.IExplorerComponent;
+import java.io.File;
 
 public class FileTableModel implements TableModel {
 
-	private IExplorerComponent c;
+	private final IExplorerComponent c;
 	
-	String[] headers = { "File Name", "ext.", "Size", "Date Modified" };
+	private final String[] headers = { "File Name", "ext.", "Size", "Date Modified" };
 	
 	public FileTableModel(IExplorerComponent c) {
 		this.c = c;
@@ -40,11 +40,11 @@ public class FileTableModel implements TableModel {
 	@Override
 	public int getRowCount() {
 		try {
-			File f = c.getCurrentDirectory();
+			IFile f = c.getCurrentDirectory();
 			if(f.getParent() != null) {
-				return f.listFiles().length + 1;
+				return f.getChildCount() + 1;
 			}
-			return f.listFiles().length;
+			return f.getChildCount();
 		} catch (NullPointerException e) {
 			return 0;
 		}
@@ -52,22 +52,19 @@ public class FileTableModel implements TableModel {
 	
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		File f = c.getCurrentDirectory();
+		IFile f = c.getCurrentDirectory();
 		if(f.getParent() != null && rowIndex == 0) {
-			return f.getParentFile();
+			return f.getParent();
 		} else if(f.getParent() != null && rowIndex > 0) {
-			return f.listFiles()[rowIndex - 1]; 
+			return f.getChildren().get(rowIndex - 1);
 		} else {
-			return f.listFiles()[rowIndex];	
+			return f.getChildren().get(rowIndex);
 		}
 	}
 
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex) {
-		if(columnIndex == 0) {
-			return true;
-		}
-		return false;
+		return columnIndex == 0;
 	}
 
 	@Override

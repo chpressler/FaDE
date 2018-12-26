@@ -82,7 +82,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient4565"
        id="radialGradient1360"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.000000,0.000000,0.000000,0.333333,0.000000,25.71429)"
        cx="24.714285"
        cy="38.571430"
@@ -93,7 +92,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient3290"
        id="radialGradient1362"
-       gradientUnits="userSpaceOnUse"
        cx="29.288071"
        cy="15.720984"
        fx="29.158466"
@@ -107,13 +105,11 @@
        y1="21.062500"
        x2="14.000000"
        y2="32.875000"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.000000,0.000000,0.000000,1.033654,1.500000,-0.627404)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient2102"
        id="linearGradient2112"
-       gradientUnits="userSpaceOnUse"
        x1="14.000000"
        y1="21.062500"
        x2="14"
@@ -123,7 +119,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient2102"
        id="linearGradient2116"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.000000,0.000000,0.000000,1.171895,2.500000,-3.141166)"
        x1="14.000000"
        y1="21.062500"
@@ -133,7 +128,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient2102"
        id="linearGradient2120"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.000000,0.000000,0.000000,1.159815,18.50000,-2.815047)"
        x1="14.000000"
        y1="21.062500"
@@ -143,7 +137,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient2102"
        id="linearGradient2124"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.000000,0.000000,0.000000,1.071351,-22.50000,-3.854623)"
        x1="14.000000"
        y1="21.062500"
@@ -157,7 +150,6 @@
        y1="29.629091"
        x2="38.390732"
        y2="29.629091"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.048897,0.000000,0.000000,1.000000,-1.267931,0.000000)" />
   </defs>
   <sodipodi:namedview

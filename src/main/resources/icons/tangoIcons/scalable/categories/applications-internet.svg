@@ -94,7 +94,7 @@
        fx="18.247644"
        fy="15.716079"
        r="29.993349"
-       gradientUnits="userSpaceOnUse" />
+    />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4114"
@@ -105,7 +105,7 @@
        fx="15.115514"
        fy="63.965388"
        r="12.289036"
-       gradientUnits="userSpaceOnUse" />
+    />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4126"
@@ -116,12 +116,11 @@
        fx="15.601279"
        fy="12.142302"
        r="43.526714"
-       gradientUnits="userSpaceOnUse" />
+    />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4825"
        id="radialGradient5983"
-       gradientUnits="userSpaceOnUse"
        cx="12.071323"
        cy="12.493138"
        fx="12.071323"
@@ -131,7 +130,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient4825"
        id="radialGradient5985"
-       gradientUnits="userSpaceOnUse"
        cx="12.071323"
        cy="12.493138"
        fx="12.071323"
@@ -141,7 +139,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient4825"
        id="radialGradient5987"
-       gradientUnits="userSpaceOnUse"
        cx="12.071323"
        cy="12.493138"
        fx="12.071323"
@@ -151,7 +148,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient4825"
        id="radialGradient5989"
-       gradientUnits="userSpaceOnUse"
        cx="12.071323"
        cy="12.493138"
        fx="12.071323"
@@ -165,12 +161,11 @@
        y1="30.057165"
        x2="-22.252472"
        y2="21.041553"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient6001"
        id="linearGradient6011"
-       gradientUnits="userSpaceOnUse"
        x1="-25.176178"
        y1="30.057165"
        x2="-22.113543"
@@ -179,7 +174,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient6001"
        id="linearGradient6015"
-       gradientUnits="userSpaceOnUse"
        x1="-22.822565"
        y1="28.337734"
        x2="-22.113543"
@@ -188,7 +182,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient6001"
        id="linearGradient6019"
-       gradientUnits="userSpaceOnUse"
        x1="-21.658581"
        y1="15.649428"
        x2="-21.962101"

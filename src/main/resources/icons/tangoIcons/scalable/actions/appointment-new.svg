@@ -65,7 +65,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient12512"
        id="radialGradient278"
-       gradientUnits="userSpaceOnUse"
        cx="55.000000"
        cy="125.00000"
        fx="55.000000"
@@ -147,12 +146,11 @@
        fx="31.112698"
        fy="19.008621"
        r="8.6620579"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient2152"
        id="linearGradient4307"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.123841,0.000000,0.000000,0.969691,-31.88758,-19.59492)"
        x1="8.9156475"
        y1="37.197018"
@@ -162,7 +160,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient10653"
        id="radialGradient4309"
-       gradientUnits="userSpaceOnUse"
        cx="11.329200"
        cy="10.583970"
        fx="11.329200"
@@ -172,7 +169,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient2145"
        id="radialGradient4311"
-       gradientUnits="userSpaceOnUse"
        cx="11.901996"
        cy="10.045444"
        fx="11.901996"
@@ -182,7 +178,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient42174"
        id="linearGradient4313"
-       gradientUnits="userSpaceOnUse"
        x1="6.3422160"
        y1="7.7893324"
        x2="22.218424"
@@ -197,7 +192,7 @@
        fy="10.972863"
        r="3.3478092"
        gradientTransform="matrix(3.630420,1.654030e-15,-1.608743e-15,3.742066,-61.48607,-29.18618)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient5204"
@@ -206,12 +201,11 @@
        y1="4.2570662"
        x2="20.329933"
        y2="5.2845874"
-       gradientUnits="userSpaceOnUse" />
+    />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient37935"
        id="radialGradient5212"
-       gradientUnits="userSpaceOnUse"
        cx="8.7468252"
        cy="6.8283234"
        fx="8.7468252"

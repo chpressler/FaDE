@@ -1,44 +1,39 @@
 package com.jensui.projects.fade.components;
 
-import java.awt.Color;
-import java.awt.LayoutManager;
-import java.io.File;
+import com.jensui.projects.fade.FaDE;
+import com.jensui.projects.fade.IConnector;
+import com.jensui.projects.fade.IFile;
+import com.jensui.projects.fade.controller.FileTreeController;
+import com.jensui.projects.fade.model.FileTreeModel;
+import net.miginfocom.swing.MigLayout;
+
+import javax.swing.*;
+import javax.swing.tree.TreeModel;
+import javax.swing.tree.TreePath;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.swing.BorderFactory;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTree;
-import javax.swing.tree.TreeModel;
-import javax.swing.tree.TreePath;
-
-import com.jensui.projects.fade.FaDE;
-import com.jensui.projects.fade.model.FileTreeModel;
-import net.miginfocom.swing.MigLayout;
-
-import com.jensui.projects.fade.controller.FileTreeController;
-
 public class FileTreeComponent extends JPanel implements IExplorerComponent {
 
 	private static final long serialVersionUID = 1L;
+
+	private IConnector connector;
 	
-	private JTree view = null;
+	private JTree view;
 	
 	private TreeModel model = null;
 	
-	private FileTreeController controller = null;
+	private FileTreeController controller;
 	
-	private File root;
+	private IFile root;
 	
-	private File currentDir;
+	private IFile currentDir;
 	
-	private File lastSelected;
-	
-	private LayoutManager layout = null;
-	
-	private ArrayList<ExplorerComponentListener> listeners = new ArrayList<ExplorerComponentListener>();
+	private IFile lastSelected;
+
+    private final ArrayList<ExplorerComponentListener> listeners = new ArrayList<ExplorerComponentListener>();
 
 	public JTree getView() {
 		return view;
@@ -88,16 +83,16 @@ public class FileTreeComponent extends JPanel implements IExplorerComponent {
 		JScrollPane jsp = new JScrollPane();
 		jsp.setAutoscrolls(true);
 		jsp.getViewport().add(view);
-		layout = new MigLayout("flowy", "0[grow,fill,center]",
-		"[c,grow,fill]");
+        LayoutManager layout = new MigLayout("flowy", "0[grow,fill,center]",
+                "[c,grow,fill]");
 		this.setLayout(layout);
 		add(jsp);
 	}
 	
-	private Object[] getPath(File f, ArrayList<File> al) {
+	private Object[] getPath(IFile f, ArrayList<IFile> al) {
 		al.add(f);
 		if(f.getParent() != null) {
-			getPath(f.getParentFile(), al);
+			getPath(f.getParent(), al);
 		}
 		Object[] oa = new Object[al.size()];
 		int oi = 0; 
@@ -109,13 +104,13 @@ public class FileTreeComponent extends JPanel implements IExplorerComponent {
 	}
 
 	@Override
-	public File getRoot() {
+	public IFile getRoot() {
 		return root;
 	}
 
 	@Override
-	public void setRoot(File f) {
-		if(!f.isDirectory()) {
+	public void setRoot(IFile f) {
+		if(!f.isDir()) {
 			return;
 		}
         if(FaDE.getInstance().getOSType().equals(FaDE.OSType.UNIX)) {
@@ -142,24 +137,24 @@ public class FileTreeComponent extends JPanel implements IExplorerComponent {
 	}
 
 	@Override
-	public File getCurrentDirectory() {
+	public IFile getCurrentDirectory() {
 		return currentDir;
 	}
 
 	@Override
-	public File[] getSelectedFiles() {
+	public IFile[] getSelectedFiles() {
 		//TODO -> return selected Files[]
 		return null;
 	}
 
 	@Override
-	public void setCurrentDirectory(File f) {
-		if(!f.isDirectory()) {
+	public void setCurrentDirectory(IFile f) {
+		if(!f.isDir()) {
 			return;
 		}
 		currentDir = f;
 		view.clearSelection();
-		ArrayList<File> al = new ArrayList<File>();
+		ArrayList<IFile> al = new ArrayList<>();
 		TreePath path = new TreePath(getPath(f, al));
 		view.setSelectionPath(path);
 		view.expandPath(path);
@@ -172,27 +167,21 @@ public class FileTreeComponent extends JPanel implements IExplorerComponent {
 		validate();
 	}
 
-	@Override
-	public void setSelectedFiles(File[] selection) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	private File getRoot(File f) {
-		if(f.getParentFile() == null) {
+	private IFile getRoot(IFile f) {
+		if(f.getParent() == null) {
 			return f;
 		} else {
-			return getRoot(f.getParentFile());
+			return getRoot(f.getParent());
 		}
 	}
 
 	@Override
-	public File getLastSelected() {
+	public IFile getLastSelected() {
 		return lastSelected;
 	}
 
 	@Override
-	public void selectionChanged(File lastSelected) {
+	public void selectionChanged(IFile lastSelected) {
 		this.lastSelected = lastSelected;
 		for(ExplorerComponentListener l : listeners) {
 			l.selectionChanged(new ExplorerComponentEvent(this));

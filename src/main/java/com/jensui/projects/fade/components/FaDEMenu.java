@@ -2,6 +2,7 @@ package com.jensui.projects.fade.components;
 
 import com.jensui.projects.fade.ResourceHandler;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
@@ -9,56 +10,45 @@ import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.swing.ImageIcon;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.KeyStroke;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-
 public class FaDEMenu extends JMenuBar {
 
 	private static final long serialVersionUID = 1L;
 
-	JFrame jframe = null;
+	private JFrame jframe = null;
 	
-	JMenu file = new JMenu(ResourceHandler.getInstance().getStrings().getString("file"));
+	private final JMenu file = new JMenu(ResourceHandler.getInstance().getStrings().getString("file"));
 	
-	JMenuItem file_new = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("new"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("new")));
+	private final JMenuItem file_new = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("new"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("new")));
 	
-	JMenuItem file_exit = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("exit"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("exit")));
+	private final JMenuItem file_exit = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("exit"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("exit")));
 	
-	JMenuItem file_open = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("open"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("open")));
+	private final JMenuItem file_open = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("open"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("open")));
 	
-	JMenuItem file_save = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("save"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("save")));
+	private final JMenuItem file_save = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("save"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("save")));
 	
-	JMenuItem file_save_as = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("save_as"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("save_as")));
+	private final JMenuItem file_save_as = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("save_as"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("save_as")));
 	
-	JMenu edit = new JMenu(ResourceHandler.getInstance().getStrings().getString("edit"));
+	private final JMenu edit = new JMenu(ResourceHandler.getInstance().getStrings().getString("edit"));
 
-	JMenu laf = new JMenu(ResourceHandler.getInstance().getStrings().getString("laf"));
+	private final JMenu laf = new JMenu(ResourceHandler.getInstance().getStrings().getString("laf"));
 	
-	JMenuItem edit_undo = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("undo"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("undo")));
+	private final JMenuItem edit_undo = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("undo"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("undo")));
 	
-	JMenuItem edit_cut = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("cut"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("cut")));
+	private final JMenuItem edit_cut = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("cut"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("cut")));
 	
-	JMenuItem edit_copy = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("copy"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("copy")));
+	private final JMenuItem edit_copy = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("copy"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("copy")));
 	
-	JMenuItem edit_paste = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("paste"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("paste")));
+	private final JMenuItem edit_paste = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("paste"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("paste")));
 	
-	JMenuItem edit_delete = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("delete"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("delete")));
+	private final JMenuItem edit_delete = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("delete"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("delete")));
 
-	JMenuItem edit_properties = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("properties"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("properties")));
+	private final JMenuItem edit_properties = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("properties"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("properties")));
 	
-	JMenu help = new JMenu(ResourceHandler.getInstance().getStrings().getString("help"));
+	private final JMenu help = new JMenu(ResourceHandler.getInstance().getStrings().getString("help"));
 	
-	JMenuItem help_help = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("help_help"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("help_help")));
+	private final JMenuItem help_help = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("help_help"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("help_help")));
 	
-	JMenuItem help_about = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("about"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("about")));
+	private final JMenuItem help_about = new JMenuItem(ResourceHandler.getInstance().getStrings().getString("about"), new ImageIcon("resources/icons/" + ResourceHandler.getInstance().getIcons().getString("about")));
 
 	public FaDEMenu(final JFrame jf) {
 
@@ -168,7 +158,7 @@ public class FaDEMenu extends JMenuBar {
 			public void actionPerformed(ActionEvent e) {
 				final JDialog jd = new JDialog();
 				JOptionPane.showMessageDialog(jd,
-						"myFaDE File and Directory Explorer\nVersion 1.0\n\n(c)hristian Pressler 2010 - "+year+" | fade.projects.jensui.com\n\nhttps://github.com/chpressler/fade.git\nchristian.pressler@gmail.com", "About FaDE",
+						"FaDE File and Directory Explorer\nVersion 1.0\n\n(c)hristian Pressler 2010 - "+year+" | https://github.com/chpressler/fade.git\nchristian.pressler@gmail.com", "About FaDE",
 						JOptionPane.INFORMATION_MESSAGE, new ImageIcon("about.jpg"));
 			}
 		});

@@ -1,9 +1,13 @@
 package com.jensui.projects.fade.components;
 
+import com.jensui.projects.fade.ConnectorManager;
 import com.jensui.projects.fade.FaDE;
+import com.jensui.projects.fade.IConnector;
+import com.jensui.projects.fade.IFile;
 
-import java.awt.GridLayout;
-import java.awt.LayoutManager;
+import javax.swing.*;
+import javax.swing.filechooser.FileSystemView;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -11,22 +15,14 @@ import java.io.File;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.swing.ButtonGroup;
-import javax.swing.JPanel;
-import javax.swing.filechooser.FileSystemView;
 
 public class DriveSelectComponent extends JPanel implements ExplorerComponentListener {
 
 	private static final long serialVersionUID = 1L;
-	private FaDEComponent c;
-	private List<DriveButton> buttons;
+	private final FaDEComponent c;
+	private final List<DriveButton> buttons;
     private int rootCount;
-	private ButtonGroup bg;
-	private DriveButton currentSelected;
-	private LayoutManager layout = null;
+    private DriveButton currentSelected;
 
     private int getRootCount() {
         FaDE.OSType os = FaDE.getOSType();
@@ -67,52 +63,28 @@ public class DriveSelectComponent extends JPanel implements ExplorerComponentLis
         return false;
     }
 
-    private File[] getRootFiles() {
-        FaDE.OSType os = FaDE.getOSType();
-        switch (os) {
-            case UNIX:
-                try {
-                    Process mountProcess = Runtime.getRuntime().exec("mount");
-                    BufferedReader mountOutput = new BufferedReader(new InputStreamReader(mountProcess.getInputStream()));
-                    List<File> roots = new ArrayList<File>();
-                    while (true) {
-                        String line = mountOutput.readLine();
-                        if (line == null) {
-                            break;
-                        }
-                        String[] sa = line.split(" ");
-                        File f = new File(sa[2]);
-                        if(f.exists()) {
-                            roots.add(f);
-                        }
-                    }
-                    mountOutput.close();
-                    File[] ra = new File[roots.size()];
-                    return roots.toArray(ra);
-                } catch (Exception e) {
-                    Logger.getLogger(DriveSelectComponent.class.getName()).log(Level.SEVERE, e.getMessage());
-                    return File.listRoots();
-                }
-            case MS:
-                // fall through
-            default:
-                return File.listRoots();
+    private List<IFile> getRootFiles() {
+        //TODO -> move all this in default Connector
+        List<IFile> roots = new ArrayList<>();
+        for(IConnector c : ConnectorManager.getInstance().getConnectors()) {
+            roots.addAll(c.getRootFiles());
         }
+        return roots;
     }
 
     private void init() {
 		this.removeAll();
 		setOpaque(false);
-		layout = new GridLayout(2, 0, 5, 5);
+        LayoutManager layout = new GridLayout(2, 0, 5, 5);
 		setLayout(layout);
 		buttons.clear();
-		bg = new ButtonGroup();
-		for(File f : getRootFiles()) {
+        ButtonGroup bg = new ButtonGroup();
+		for(IFile f : getRootFiles()) {
 			DriveButton b = new DriveButton(f);
 			buttons.add(b);
 			bg.add(b);
-			b.setToolTipText(FileSystemView.getFileSystemView().getSystemDisplayName(f));
-			b.setIcon(FileSystemView.getFileSystemView().getSystemIcon(f));
+			b.setToolTipText(FileSystemView.getFileSystemView().getSystemDisplayName(f.getFile()));
+			b.setIcon(FileSystemView.getFileSystemView().getSystemIcon(f.getFile()));
 			b.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if(!((DriveButton) e.getSource()).getFile().exists()) {
@@ -135,10 +107,10 @@ public class DriveSelectComponent extends JPanel implements ExplorerComponentLis
         updateUI();
 	}
 	
-	public File getSelectedRoot() {
+	public IFile getSelectedRoot() {
 		for(DriveButton tb : buttons) {
 			if(tb.isSelected()) {
-			return tb.getFile();
+			    return tb.getFile();
 			}
 		}
 		return null;
@@ -174,7 +146,7 @@ public class DriveSelectComponent extends JPanel implements ExplorerComponentLis
 
 	@Override
 	public void rootChanged(ExplorerComponentEvent e) {
-		setDriveButtonSelected();
+        setDriveButtonSelected();
 	}
 	
 	private void setDriveButtonSelected() {

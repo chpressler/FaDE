@@ -1,47 +1,40 @@
 package com.jensui.projects.fade.components;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Rectangle;
-import java.io.File;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import javax.swing.Icon;
-import javax.swing.JLabel;
-import javax.swing.JTree;
-import javax.swing.UIManager;
+import com.jensui.projects.fade.IFile;
+
+import javax.swing.*;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.plaf.UIResource;
 import javax.swing.tree.TreeCellRenderer;
+import java.awt.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class FileTreeCellRenderer extends JLabel implements TreeCellRenderer {
+class FileTreeCellRenderer extends JLabel implements TreeCellRenderer {
 
 	private static final long serialVersionUID = 1L;
 
-	protected boolean selected;
+	private boolean selected;
 
-	protected boolean hasFocus;
+	private boolean hasFocus;
 
-	private boolean drawsFocusBorderAroundIcon;
+	private final boolean drawsFocusBorderAroundIcon;
 
-	protected transient Icon closedIcon;
+	private transient Icon closedIcon;
 
-	protected transient Icon leafIcon;
+	private transient Icon leafIcon;
 
-	protected transient Icon openIcon;
+	private transient Icon openIcon;
 
-	protected Color textSelectionColor;
+	private Color textSelectionColor;
 
-	protected Color textNonSelectionColor;
+	private Color textNonSelectionColor;
 
-	protected Color backgroundSelectionColor;
+	private Color backgroundSelectionColor;
 
-	protected Color backgroundNonSelectionColor;
+	private Color backgroundNonSelectionColor;
 
-	protected Color borderSelectionColor;
+	private Color borderSelectionColor;
 
 	public FileTreeCellRenderer() {
 		setLeafIcon(getDefaultLeafIcon());
@@ -57,38 +50,38 @@ public class FileTreeCellRenderer extends JLabel implements TreeCellRenderer {
 		setBorderSelectionColor(UIManager.getColor("Tree.selectionBorderColor"));
 		Object val = UIManager.get("Tree.drawsFocusBorderAroundIcon");
 		drawsFocusBorderAroundIcon = val != null
-				&& ((Boolean) val).booleanValue();
+				&& (Boolean) val;
 	}
 
-	public Icon getDefaultOpenIcon() {
+	private Icon getDefaultOpenIcon() {
 		return UIManager.getIcon("Tree.openIcon");
 	}
 
-	public Icon getDefaultClosedIcon() {
+	private Icon getDefaultClosedIcon() {
 		return UIManager.getIcon("Tree.closedIcon");
 	}
 
-	public Icon getDefaultLeafIcon() {
+	private Icon getDefaultLeafIcon() {
 		return UIManager.getIcon("Tree.leafIcon");
 	}
 
-	public void setOpenIcon(Icon icon) {
+	private void setOpenIcon(Icon icon) {
 		openIcon = icon;
 	}
 
-	public Icon getOpenIcon() {
+	private Icon getOpenIcon() {
 		return openIcon;
 	}
 
-	public void setClosedIcon(Icon icon) {
+	private void setClosedIcon(Icon icon) {
 		closedIcon = icon;
 	}
 
-	public Icon getClosedIcon() {
+	private Icon getClosedIcon() {
 		return closedIcon;
 	}
 
-	public void setLeafIcon(Icon icon) {
+	private void setLeafIcon(Icon icon) {
 		leafIcon = icon;
 	}
 
@@ -96,43 +89,43 @@ public class FileTreeCellRenderer extends JLabel implements TreeCellRenderer {
 		return leafIcon;
 	}
 
-	public void setTextSelectionColor(Color c) {
+	private void setTextSelectionColor(Color c) {
 		textSelectionColor = c;
 	}
 
-	public Color getTextSelectionColor() {
+	private Color getTextSelectionColor() {
 		return textSelectionColor;
 	}
 
-	public void setTextNonSelectionColor(Color c) {
+	private void setTextNonSelectionColor(Color c) {
 		textNonSelectionColor = c;
 	}
 
-	public Color getTextNonSelectionColor() {
+	private Color getTextNonSelectionColor() {
 		return textNonSelectionColor;
 	}
 
-	public void setBackgroundSelectionColor(Color c) {
+	private void setBackgroundSelectionColor(Color c) {
 		backgroundSelectionColor = c;
 	}
 
-	public Color getBackgroundSelectionColor() {
+	private Color getBackgroundSelectionColor() {
 		return backgroundSelectionColor;
 	}
 
-	public void setBackgroundNonSelectionColor(Color c) {
+	private void setBackgroundNonSelectionColor(Color c) {
 		backgroundNonSelectionColor = c;
 	}
 
-	public Color getBackgroundNonSelectionColor() {
+	private Color getBackgroundNonSelectionColor() {
 		return backgroundNonSelectionColor;
 	}
 
-	public void setBorderSelectionColor(Color c) {
+	private void setBorderSelectionColor(Color c) {
 		borderSelectionColor = c;
 	}
 
-	public Color getBorderSelectionColor() {
+	private Color getBorderSelectionColor() {
 		return borderSelectionColor;
 	}
 
@@ -153,14 +146,14 @@ public class FileTreeCellRenderer extends JLabel implements TreeCellRenderer {
 			boolean hasFocus) {
 		if (leaf)
 //			setIcon(getLeafIcon());
-			setIcon( FileSystemView.getFileSystemView().getSystemIcon( ((File) val) ));
+			setIcon( FileSystemView.getFileSystemView().getSystemIcon( ((IFile) val).getFile() ));
 		else if (expanded)
 			setIcon(getOpenIcon());
 		else
 			setIcon(getClosedIcon());
 		
 		try {
-			setText( ((File) val).getAbsoluteFile().getName());
+			setText( ((IFile) val).getName());
 		} catch (Exception e) {
 			Logger.getAnonymousLogger().log(Level.SEVERE, e.toString());
 		}
@@ -191,10 +184,6 @@ public class FileTreeCellRenderer extends JLabel implements TreeCellRenderer {
 		return this;
 	}
 
-	public Font getFont() {
-		return super.getFont();
-	}
-
 	public void paint(Graphics g) {
 
 		Color bgColor;
@@ -220,16 +209,16 @@ public class FileTreeCellRenderer extends JLabel implements TreeCellRenderer {
 				xOffset = 0;
 			else if (xOffset == -1)
 				xOffset = getXOffset();
-			paintFocus(g, xOffset, 0, getWidth() - xOffset, getHeight());
+			paintFocus(g, xOffset, getWidth() - xOffset, getHeight());
 		}
 		super.paint(g);
 	}
 
-	private void paintFocus(Graphics g, int x, int y, int w, int h) {
+	private void paintFocus(Graphics g, int x, int w, int h) {
 		Color col = getBorderSelectionColor();
 		if (col != null) {
 			g.setColor(col);
-			g.drawRect(x, y, w - 1, h - 1);
+			g.drawRect(x, 0, w - 1, h - 1);
 		}
 	}
 

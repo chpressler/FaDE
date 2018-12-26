@@ -1,32 +1,28 @@
 package com.jensui.projects.fade.components;
 
-import java.awt.Component;
-import java.awt.LayoutManager;
+import net.miginfocom.swing.MigLayout;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
-
-import javax.swing.JPanel;
-
-import net.miginfocom.swing.MigLayout;
 
 public class FaDEComponent extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private DriveSelectComponent dsc = null;
+	private DriveSelectComponent dsc;
 	
-	private ViewSwitcherComponent vsc = null;
+	private ViewSwitcherComponent vsc;
 	
-	private URLComponent urlc = null;
+	private URLComponent urlc;
 	
-	private IExplorerComponent fileComponent = null;
-	
-	private LayoutManager layout = null;
-	
+	private IExplorerComponent fileComponent;
+
 	private boolean isSelected = false;
 	
-	private ArrayList<FaDEComponentSelectionListener> listeners = new ArrayList<FaDEComponentSelectionListener>();
+	private final ArrayList<FaDEComponentSelectionListener> listeners = new ArrayList<FaDEComponentSelectionListener>();
 	
 	public void addFaDEComponentSelectionListener(FaDEComponentSelectionListener listener) {
 		listeners.add(listener);
@@ -35,7 +31,7 @@ public class FaDEComponent extends JPanel {
 	public void removeFaDEComponentSelectionListener(FaDEComponentSelectionListener listener) {
 		listeners.remove(listener);
 	}
-	
+
 	public void setSelected(boolean b) {
 		isSelected = b;
 		if (isSelected) {
@@ -90,7 +86,7 @@ public class FaDEComponent extends JPanel {
 		vsc = new ViewSwitcherComponent(this);
 		dsc = new DriveSelectComponent(this);
 		fileComponent = new FileTableComponent(urlc, dsc);
-		layout = new MigLayout("flowy", "0[grow,fill,center]",
+		LayoutManager layout = new MigLayout("flowy", "0[grow,fill,center]",
 				"[][][][grow,fill]");
 		setLayout(layout);
 		add(dsc);

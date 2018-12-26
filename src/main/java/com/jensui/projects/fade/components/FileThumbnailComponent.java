@@ -1,78 +1,63 @@
 package com.jensui.projects.fade.components;
 
-import java.io.File;
-import java.util.ArrayList;
+import com.jensui.projects.fade.IFile;
 
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.util.ArrayList;
 
 public class FileThumbnailComponent extends JPanel implements IExplorerComponent {
 
 	private static final long serialVersionUID = 1L;
 
+
+	@Override
+	public IFile getRoot() {
+		return null;
+	}
+
+	@Override
+	public void setRoot(IFile f) {
+
+	}
+
+	@Override
+	public IFile getCurrentDirectory() {
+		return null;
+	}
+
+	@Override
+	public void setCurrentDirectory(IFile f) {
+
+	}
+
+	@Override
+	public IFile[] getSelectedFiles() {
+		return new IFile[0];
+	}
+
+	@Override
+	public IFile getLastSelected() {
+		return null;
+	}
+
 	@Override
 	public void addExplorerComponentListener(ExplorerComponentListener l) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public File getCurrentDirectory() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ArrayList<ExplorerComponentListener> getExplorerComponentListeners() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public File getLastSelected() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public File getRoot() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public File[] getSelectedFiles() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
 	public void removeExplorerComponentListener(ExplorerComponentListener l) {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public void selectionChanged(File lastSelected) {
-		// TODO Auto-generated method stub
-		
+	public ArrayList<ExplorerComponentListener> getExplorerComponentListeners() {
+		return null;
 	}
 
 	@Override
-	public void setCurrentDirectory(File f) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void selectionChanged(IFile lastSelected) {
 
-	@Override
-	public void setRoot(File f) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setSelectedFiles(File[] selection) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

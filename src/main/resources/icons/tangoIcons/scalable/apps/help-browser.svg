@@ -52,7 +52,7 @@
        fy="36.75"
        r="15.75"
        gradientTransform="matrix(1.000000,0.000000,0.000000,0.595238,3.369686e-16,14.87500)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        id="linearGradient2933">
       <stop
@@ -73,7 +73,6 @@
        fx="26.544321"
        fy="28.458725"
        r="22.376116"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.238342,5.954846e-3,-6.507762e-3,1.351272,-6.992513,-9.744842)" />
     <radialGradient
        inkscape:collect="always"
@@ -85,7 +84,7 @@
        fy="16.855663"
        r="8.7536434"
        gradientTransform="matrix(4.445991,-8.852599e-16,1.367217e-15,6.8665,67.25071,-104.6679)"
-       gradientUnits="userSpaceOnUse" />
+    />
   </defs>
   <sodipodi:namedview
      inkscape:guide-bbox="true"

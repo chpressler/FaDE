@@ -1,33 +1,28 @@
 package com.jensui.projects.fade.components;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
-
-import javax.swing.BorderFactory;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 public class FaDEStatusBar extends JPanel implements ExplorerComponentListener {
 
 	private static final long serialVersionUID = 1L;
 	
-	private JLabel leftroot;
+	private final JLabel leftroot;
 	
-	private JLabel rightroot;
-	
-	private JLabel middle;
-	
-	private IExplorerComponent left, right;
+	private final JLabel rightroot;
+
+    private final IExplorerComponent left;
+	private final IExplorerComponent right;
 
 	public FaDEStatusBar(IExplorerComponent left, IExplorerComponent right) {
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 		setLayout(new FlowLayout());
 		this.left = left;
 		this.right = right;
+		left.addExplorerComponentListener(this);
+		right.addExplorerComponentListener(this);
 		leftroot = new JLabel();
-		middle = new JLabel("<->");
+        JLabel middle = new JLabel("<->");
 		rightroot = new JLabel();
 		add(leftroot);
 		add(middle);
@@ -52,8 +47,8 @@ public class FaDEStatusBar extends JPanel implements ExplorerComponentListener {
 
 	@Override
 	public void rootChanged(ExplorerComponentEvent e) {
-		leftroot.setText(left.getRoot().getAbsolutePath());
-		rightroot.setText(right.getRoot().getAbsolutePath());
+		leftroot.setText(left.getRoot().getURI().getPath());
+		rightroot.setText(right.getRoot().getURI().getPath());
 		repaint();
 	}
 

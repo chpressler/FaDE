@@ -14,7 +14,6 @@
    id="svg79606"
    sodipodi:version="0.32"
    inkscape:version="0.43+devel"
-   version="1.0"
    sodipodi:docbase="/home/garrett/Source/tango-icon-theme/scalable/status"
    sodipodi:docname="mail-attachment.svg">
   <defs
@@ -56,7 +55,7 @@
        fy="23.07144"
        r="15.571428"
        gradientTransform="matrix(0.977282,3.554943e-8,-8.305337e-10,0.651376,-0.79443,15.82896)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient5783"
@@ -65,7 +64,7 @@
        y1="5.7753429"
        x2="20.604948"
        y2="29.85923"
-       gradientUnits="userSpaceOnUse" />
+    />
   </defs>
   <sodipodi:namedview
      id="base"

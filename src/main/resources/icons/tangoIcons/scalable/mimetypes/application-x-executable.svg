@@ -32,7 +32,6 @@
     </linearGradient>
     <linearGradient
        id="aigrd1"
-       gradientUnits="userSpaceOnUse"
        x1="99.7773"
        y1="15.4238"
        x2="153.0005"
@@ -50,15 +49,13 @@
        inkscape:collect="always"
        xlink:href="#aigrd1"
        id="linearGradient53551"
-       gradientUnits="userSpaceOnUse"
        x1="99.7773"
        y1="15.4238"
        x2="153.0005"
        y2="248.6311"
        gradientTransform="matrix(0.200685,0.000000,0.000000,0.200685,-0.585758,-1.050787)" />
     <radialGradient
-       gradientUnits="userSpaceOnUse"
-       r="11.689870"
+            r="11.689870"
        fy="72.568001"
        fx="14.287618"
        cy="68.872971"

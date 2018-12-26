@@ -6,9 +6,9 @@ import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
 
 
-public class FaDEUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
+class FaDEUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
 
-	private Logger logger = Logger.getLogger(FaDELogger.class.getName());
+	private final Logger logger = Logger.getLogger(FaDELogger.class.getName());
 	
 	public FaDEUncaughtExceptionHandler() {
 //		try {

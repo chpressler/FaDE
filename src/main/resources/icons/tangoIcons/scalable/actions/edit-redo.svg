@@ -80,7 +80,7 @@
        fy="36.421127"
        r="15.644737"
        gradientTransform="matrix(1.000000,0.000000,0.000000,0.536723,-5.825329e-14,16.87306)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        id="linearGradient2187"
        inkscape:collect="always">
@@ -97,7 +97,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient2187"
        id="linearGradient1764"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.813471e-16,-1.171926,1.171926,1.813471e-16,1.782801,54.10111)"
        x1="17.060806"
        y1="11.39502"
@@ -113,7 +112,7 @@
        fy="11.132236"
        r="19.0625"
        gradientTransform="matrix(-1.290127e-2,1.685197,1.713082,1.311475e-2,-1.041499,-10.11571)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient2232"
@@ -122,7 +121,7 @@
        y1="35.75"
        x2="31.5"
        y2="42.5"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient2240"
@@ -131,7 +130,7 @@
        y1="35.75"
        x2="31.5"
        y2="42.5"
-       gradientUnits="userSpaceOnUse" />
+    />
   </defs>
   <sodipodi:namedview
      stroke="#788600"

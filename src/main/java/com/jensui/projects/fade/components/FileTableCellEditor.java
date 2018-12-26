@@ -7,7 +7,7 @@ import javax.swing.DefaultCellEditor;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class FileTableCellEditor extends DefaultCellEditor {
+class FileTableCellEditor extends DefaultCellEditor {
 
 	private static final long serialVersionUID = 1L;
 	

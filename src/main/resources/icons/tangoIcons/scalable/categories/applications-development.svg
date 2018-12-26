@@ -14,7 +14,6 @@
    id="svg2"
    sodipodi:version="0.32"
    inkscape:version="0.43+devel"
-   version="1.0"
    sodipodi:docbase="/home/tigert/cvs/freedesktop.org/tango-icon-theme/scalable/categories"
    sodipodi:docname="applications-development.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
@@ -84,7 +83,6 @@
        inkscape:collect="always"
        xlink:href="#linearGradient5012"
        id="radialGradient7666"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(0.136507,-2.396132e-18,-4.484926e-5,7.137743e-2,-23.39816,12.31028)"
        cx="336.73767"
        cy="-72.420044"
@@ -101,7 +99,7 @@
        fy="685.99139"
        r="235.88632"
        gradientTransform="matrix(0.163532,-1.065754e-2,1.078108e-2,0.165425,-46.18187,-65.65506)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient8543"
@@ -112,7 +110,7 @@
        fy="286.46918"
        r="40.975471"
        gradientTransform="matrix(0.224796,1.017229e-2,-9.759474e-3,0.215674,-73.87964,-54.89804)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient8543"
@@ -123,7 +121,7 @@
        fy="243.06874"
        r="48.782982"
        gradientTransform="matrix(0.272962,-7.1724e-2,5.616202e-2,0.213737,-78.54657,-24.30491)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient11202"
@@ -134,7 +132,7 @@
        fy="270.67969"
        r="38.451698"
        gradientTransform="matrix(8.174351e-2,1.024998e-2,-4.335971e-2,0.345793,6.123413,-84.50421)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient8543"
@@ -145,7 +143,7 @@
        fy="409.83737"
        r="103.26014"
        gradientTransform="matrix(0.105628,-4.514018e-2,6.692574e-2,0.156607,-46.01605,-24.35485)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient18284"
@@ -156,12 +154,11 @@
        fy="45.673546"
        r="30.365856"
        gradientTransform="matrix(1,0,2.702168e-19,0.415385,-2.283104e-16,26.70146)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient8543"
        id="radialGradient2798"
-       gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(0.101953,-4.272301e-2,9.621296e-2,0.229599,-48.67227,-64.24148)"
        cx="131.23691"
        cy="424.15677"
@@ -178,7 +175,7 @@
        fy="10.943316"
        r="18.370251"
        gradientTransform="matrix(1.402663,1.176399e-16,-9.356816e-17,1.115648,-6.237984,5.33075e-2)"
-       gradientUnits="userSpaceOnUse" />
+    />
   </defs>
   <sodipodi:namedview
      id="base"

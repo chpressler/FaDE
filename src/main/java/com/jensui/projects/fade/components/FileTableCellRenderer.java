@@ -1,30 +1,27 @@
 package com.jensui.projects.fade.components;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Rectangle;
-import java.io.File;
-import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.GregorianCalendar;
+import com.jensui.projects.fade.IFile;
 
-import javax.swing.JLabel;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
+import java.awt.*;
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
 
-public class FileTableCellRenderer extends JLabel implements
+class FileTableCellRenderer extends JLabel implements
 		TableCellRenderer, Serializable {
 	static final long serialVersionUID = 7878911414715528324L;
 
 	protected static Border noFocusBorder = new EmptyBorder(0, 0, 0, 0);
 	
-	private IExplorerComponent c;
+	private final IExplorerComponent c;
 
-	public static class UIResource extends DefaultTableCellRenderer implements
+	private static class UIResource extends DefaultTableCellRenderer implements
 			javax.swing.plaf.UIResource {
 
 		private static final long serialVersionUID = 1L;
@@ -44,17 +41,17 @@ public class FileTableCellRenderer extends JLabel implements
 
 		
 		if(column == 0) {
-			setValue(((File) value).getName());
+			setValue(((IFile) value).getName());
 		} else if(column == 1) {
 			String ext = "";
-			   int i = ((File) value).getName().lastIndexOf('.');
-			   if (i > 0 &&  i < ((File) value).length() - 1) {
-			      ext = ((File) value).getName().substring(i + 1).toLowerCase();
+			   int i = ((IFile) value).getName().lastIndexOf('.');
+			   if (i > 0 &&  i < ((IFile) value).getSize() - 1) {
+			      ext = ((IFile) value).getName().substring(i + 1).toLowerCase();
 			   }
 			setValue(ext);
 		} else if(column == 2) {
-			long length = ((File) value).length();
-			String size = "";
+			long length = ((IFile) value).getSize();
+			String size;
 			if(length > 1024 && length < (1024 * 1024)) {
 				length /= 1024;
 				size = length + " KB";
@@ -67,7 +64,7 @@ public class FileTableCellRenderer extends JLabel implements
 				length /= (1024 * 1024 * 1024);
 				size = length + " GB";
 			}
-			else if(((File) value).isFile()) {
+			else if(!((IFile) value).isDir()) {
 				size = length + " Byte";
 			}
 			else {
@@ -77,7 +74,7 @@ public class FileTableCellRenderer extends JLabel implements
 //			setValue(((File) value).length() / 1024);
 		} else if(column == 3) {			
 			GregorianCalendar gc = new GregorianCalendar();
-			gc.setTimeInMillis(((File)value).lastModified());
+			gc.setTimeInMillis(((IFile)value).getLastChanged());
 			String DATE_FORMAT = "dd.MM.yyyy hh:mm";
 		    SimpleDateFormat sdf =
 		          new SimpleDateFormat(DATE_FORMAT);
@@ -125,7 +122,7 @@ public class FileTableCellRenderer extends JLabel implements
 		// // && back.equals(table.getBackground()));
 		
 		if(column == 0) {
-			setIcon(FileSystemView.getFileSystemView().getSystemIcon(((File) value)));
+			setIcon(FileSystemView.getFileSystemView().getSystemIcon(((IFile) value).getFile()));
 		}
 		
 		if(c.getCurrentDirectory().getParent() != null && row == 0 && column == 0) {
@@ -168,7 +165,7 @@ public class FileTableCellRenderer extends JLabel implements
 		// Does nothing.
 	}
 
-	protected void setValue(Object value) {
+	private void setValue(Object value) {
 		if (value != null)
 			setText(value.toString());
 		else

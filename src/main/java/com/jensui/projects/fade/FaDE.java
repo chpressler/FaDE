@@ -1,31 +1,21 @@
 package com.jensui.projects.fade;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.LayoutManager;
-import java.awt.Toolkit;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
+import com.jensui.projects.fade.components.*;
 
 import javax.swing.*;
-
-import com.jensui.projects.fade.components.ActionsComponent;
-import com.jensui.projects.fade.components.FaDEComponent;
-import com.jensui.projects.fade.components.FaDEComponentSelectionListener;
-import com.jensui.projects.fade.components.FaDEMenu;
-import com.jensui.projects.fade.components.FaDEStatusBar;
-import com.jensui.projects.fade.components.FaDEToolBar;
+import java.awt.*;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 
 public class FaDE extends JFrame implements FaDEComponentSelectionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JSplitPane jsp;
-	private ActionsComponent actionscomponent;
-	private FaDEStatusBar statusbar;
-	private FaDEComponent left;
-	private FaDEComponent right;
-	private LayoutManager layout = null;
-    public static enum OSType {MS, UNIX, UNKNOWN};
+	private final FaDEComponent left;
+	private final FaDEComponent right;
+
+	public enum OSType {MS, UNIX, UNKNOWN}
+
 	private static volatile FaDE instance;
 	
 	public static synchronized FaDE getInstance() {
@@ -40,8 +30,8 @@ public class FaDE extends JFrame implements FaDEComponentSelectionListener {
 	}
 	
 	private FaDE() {
-		super("myFaDE");
-		layout = new BorderLayout();
+		super("FaDE");
+		LayoutManager layout = new BorderLayout();
 		setLayout(layout);
 //		SystemTray tray = SystemTray.getSystemTray();
 //		TrayIcon ti = new TrayIcon(image, "FaDE");
@@ -106,17 +96,15 @@ public class FaDE extends JFrame implements FaDEComponentSelectionListener {
 		left.setSelected(true);
 		jsp = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, left, right);
 		add(jsp, BorderLayout.CENTER);
-		actionscomponent = new ActionsComponent();
+		ActionsComponent actionscomponent = new ActionsComponent();
 //		add(actionscomponent, BorderLayout.SOUTH);
-		statusbar = new FaDEStatusBar(left.getIExplorerComponent(), right.getIExplorerComponent());
+		FaDEStatusBar statusbar = new FaDEStatusBar(left.getIExplorerComponent(), right.getIExplorerComponent());
 //		add(statusbar, BorderLayout.SOUTH);
         JPanel southPanel = new JPanel();
         southPanel.setLayout(new BorderLayout());
         southPanel.add(actionscomponent, BorderLayout.NORTH);
         southPanel.add(statusbar, BorderLayout.SOUTH);
         add(southPanel, BorderLayout.SOUTH);
-		left.getIExplorerComponent().addExplorerComponentListener(statusbar);
-		right.getIExplorerComponent().addExplorerComponentListener(statusbar);
 		jsp.setBorder(BorderFactory.createEmptyBorder()); 
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		int w = dim.width;
@@ -152,21 +140,23 @@ public class FaDE extends JFrame implements FaDEComponentSelectionListener {
 
 //		Thread.setDefaultUncaughtExceptionHandler(new FaDEUncaughtExceptionHandler()); 
 
-		final JWindow jw = new JWindow();
-		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		int h = dim.height;
-		int w = dim.width;
-		JLabel label = new JLabel(new ImageIcon(FaDE.class.getClassLoader().getResource("myFaDE.jpg")));
-		jw.getContentPane().add(label);
-		jw.setBounds(w / 2 - 250, h / 2 - 150, 500, 300);
-		jw.setVisible(true);
-//		JFrame.setDefaultLookAndFeelDecorated(true);
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				FaDE.getInstance();
-				jw.setVisible(false);
-				jw.dispose();
-			}});
+//		final JWindow jw = new JWindow();
+//		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+//		int h = dim.height;
+//		int w = dim.width;
+//		JLabel label = new JLabel(new ImageIcon(FaDE.class.getClassLoader().getResource("myFaDE.jpg")));
+//		jw.getContentPane().add(label);
+//		jw.setBounds(w / 2 - 250, h / 2 - 150, 500, 300);
+//		jw.setVisible(true);
+////		JFrame.setDefaultLookAndFeelDecorated(true);
+//		SwingUtilities.invokeLater(new Runnable() {
+//			public void run() {
+//				FaDE.getInstance();
+//				jw.setVisible(false);
+//				jw.dispose();
+//			}});
+
+		FaDE.getInstance();
 	}
 
 	@Override

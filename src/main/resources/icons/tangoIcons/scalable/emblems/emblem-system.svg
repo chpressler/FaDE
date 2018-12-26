@@ -67,12 +67,11 @@
        fy="39.161163"
        r="19.622213"
        gradientTransform="matrix(1.000000,0.000000,0.000000,0.315315,0.000000,26.81305)"
-       gradientUnits="userSpaceOnUse" />
+    />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient3264"
        id="linearGradient3281"
-       gradientUnits="userSpaceOnUse"
        x1="14.462892"
        y1="12.284524"
        x2="34.534348"
