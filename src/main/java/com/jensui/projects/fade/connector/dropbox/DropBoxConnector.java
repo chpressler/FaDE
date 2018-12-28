@@ -1,5 +1,9 @@
 package com.jensui.projects.fade.connector.dropbox;
 
+import com.dropbox.core.DbxRequestConfig;
+import com.dropbox.core.v2.DbxClientV2;
+import com.dropbox.core.v2.files.ListFolderResult;
+import com.dropbox.core.v2.files.Metadata;
 import com.jensui.projects.fade.*;
 
 import java.io.File;
@@ -9,6 +13,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DropBoxConnector implements IConnector {
+
+    private static final String ACCESS_TOKEN = "";
+
+    private String getName(String path) {
+        return path.split("/")[path.split("/").length-1];
+    }
+
+    public List<IFile> getChildren(IFile f) {
+        List<IFile> list = new ArrayList<>();
+        try {
+            DbxRequestConfig config = DbxRequestConfig.newBuilder("fade").build();
+            DbxClientV2 client = new DbxClientV2(config, ACCESS_TOKEN);
+            ListFolderResult result = client.files().listFolder(f.getURI().getPath());
+            while (true) {
+                for (Metadata metadata : result.getEntries()) {
+                    System.out.println(metadata.getPathLower());
+                    boolean isDir = true;
+                    if(metadata.toString().substring(0, 15).contains("file")) { //TODO -> use JSON Demarshaller
+                        isDir = false;
+                    }
+                    list.add(new com.jensui.projects.fade.connector.dropbox.File(getName(metadata.getPathLower()), this, isDir, new URI(metadata.getPathLower())));
+                }
+
+                if (!result.getHasMore()) {
+                    break;
+                }
+                result = client.files().listFolderContinue(result.getCursor());
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 
     @Override
     public IFile getFile(URI uri) {
@@ -28,103 +65,11 @@ public class DropBoxConnector implements IConnector {
     @Override
     public List<IFile> getRootFiles() {
         List<IFile> files = new ArrayList<>();
-        IFile f = new IFile() {
-            @Override
-            public int getChildCount() {
-                return 0;
-            }
-
-            @Override
-            public List<IFile> getChildren() {
-                return new ArrayList<>();
-            }
-
-            @Override
-            public String getName() {
-                return "DropBox ... ";
-            }
-
-            @Override
-            public URI getURI() {
-                try {
-                    return new URI("");
-                } catch (URISyntaxException e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-
-            @Override
-            public boolean isDir() {
-                return true;
-            }
-
-            @Override
-            public String getDescription() {
-                return "";
-            }
-
-            @Override
-            public long getSize() {
-                return 0;
-            }
-
-            @Override
-            public long getTotalSpace() {
-                return 1500;
-            }
-
-            @Override
-            public long getFreeSpace() {
-                return 1000;
-            }
-
-            @Override
-            public long getLastChanged() {
-                return 0;
-            }
-
-            @Override
-            public boolean exists() {
-                return false;
-            }
-
-            @Override
-            public File getFile() {
-                return null;
-            }
-
-            @Override
-            public IFile getParent() {
-                return null;
-            }
-
-            @Override
-            public IConnector getConnector() {
-                return new DropBoxConnector();
-            }
-
-            @Override
-            public void setConnector(IConnector connector) {
-
-            }
-
-            @Override
-            public boolean mkDir() {
-                return false;
-            }
-
-            @Override
-            public boolean createNewFile() {
-                return false;
-            }
-
-            @Override
-            public boolean setWritable(boolean b) {
-                return false;
-            }
-        };
-        files.add(f);
+        try {
+            files.add(new com.jensui.projects.fade.connector.dropbox.File("", this, true, new URI("")));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
         return files;
     }
 
@@ -140,6 +85,16 @@ public class DropBoxConnector implements IConnector {
 
     @Override
     public IDeleteCommand getDeleteCommand() {
+        return null;
+    }
+
+    @Override
+    public IMoveCommand getMoveCommand() {
+        return null;
+    }
+
+    @Override
+    public ICreateCommand getCreateCommand() {
         return null;
     }
 

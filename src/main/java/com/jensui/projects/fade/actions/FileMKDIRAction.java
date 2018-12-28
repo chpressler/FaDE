@@ -1,5 +1,8 @@
 package com.jensui.projects.fade.actions;
 
+import com.jensui.projects.fade.FaDE;
+import com.jensui.projects.fade.IFile;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
@@ -12,8 +15,20 @@ public class FileMKDIRAction extends AbstractAction {
 
     public void actionPerformed(ActionEvent e) {
 
-        System.out.println(e.getActionCommand());
-
+        IFile f = FaDE.getInstance().getSelectedFaDEComponent().getIExplorerComponent().getCurrentDirectory();
+        String dirName = JOptionPane.showInputDialog("DirectoryName");
+        try {
+            if(!FaDE.getInstance().getSelectedFaDEComponent().getIExplorerComponent().getRoot().getConnector().getCreateCommand().createDirectory(dirName, f)) {
+                throw new Exception("Directory could not be created");
+            }
+        } catch (Exception e1) {
+            e1.printStackTrace();
+            final JDialog jd = new JDialog();
+            JOptionPane.showMessageDialog(jd,
+                    e1.getMessage(), "Error",
+                    JOptionPane.ERROR_MESSAGE, new ImageIcon("about.jpg"));
+        }
+        FaDE.getInstance().repaint();
     }
 
 }

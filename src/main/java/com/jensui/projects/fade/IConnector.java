@@ -20,4 +20,8 @@ public interface IConnector {
 
     public IDeleteCommand getDeleteCommand();
 
+    public IMoveCommand getMoveCommand();
+
+    public ICreateCommand getCreateCommand();
+
 }

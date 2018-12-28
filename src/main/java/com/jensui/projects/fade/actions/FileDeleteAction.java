@@ -16,6 +16,10 @@ public class FileDeleteAction extends AbstractAction {
                 file.getConnector().getDeleteCommand().delete(file);
             } catch (Exception e1) {
                 e1.printStackTrace();
+                final JDialog jd = new JDialog();
+                JOptionPane.showMessageDialog(jd,
+                        e1.getMessage(), "Error",
+                        JOptionPane.ERROR_MESSAGE, new ImageIcon("about.jpg"));
             }
         }
         FaDE.getInstance().repaint();

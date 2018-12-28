@@ -17,10 +17,17 @@ public class FileRenameAction extends AbstractAction {
 
         if(FaDE.getInstance().getSelectedFaDEComponent().getIExplorerComponent().getSelectedFiles().length == 1) {
             IFile f = FaDE.getInstance().getSelectedFaDEComponent().getIExplorerComponent().getSelectedFiles()[0];
+            String fileName = JOptionPane.showInputDialog("FileName", f.getName());
             try {
-                f.getConnector().getRenameCommand().rename(f, "bla");
+                if(!f.getConnector().getRenameCommand().rename(f, fileName)) {
+                    throw new Exception("File could not be renamed");
+                }
             } catch (Exception e1) {
                 e1.printStackTrace();
+                final JDialog jd = new JDialog();
+                JOptionPane.showMessageDialog(jd,
+                        e1.getMessage(), "Error",
+                        JOptionPane.ERROR_MESSAGE, new ImageIcon("about.jpg"));
             }
         }
         FaDE.getInstance().repaint();

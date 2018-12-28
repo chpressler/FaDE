@@ -17,6 +17,10 @@ public class FileCopyAction extends AbstractAction {
                 target.getConnector().getCopyCommand().copy(f, target);
             } catch (Exception e1) {
                 e1.printStackTrace();
+                final JDialog jd = new JDialog();
+                JOptionPane.showMessageDialog(jd,
+                        e1.getMessage(), "Error",
+                        JOptionPane.ERROR_MESSAGE, new ImageIcon("about.jpg"));
             }
         }
         FaDE.getInstance().repaint();

@@ -80,6 +80,16 @@ public class FileConnector implements IConnector {
         return new FileDeleteCommand();
     }
 
+    @Override
+    public IMoveCommand getMoveCommand() {
+        return new FileMoveCommand();
+    }
+
+    @Override
+    public ICreateCommand getCreateCommand() {
+        return new FileCreateCommand();
+    }
+
     private List<IFile> convertFiles(List<File> files) {
         List<IFile> ifiles = new ArrayList<IFile>();
         for(File f : files) {

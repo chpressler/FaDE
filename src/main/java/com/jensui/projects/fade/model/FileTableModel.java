@@ -46,6 +46,7 @@ public class FileTableModel implements TableModel {
 			}
 			return f.getChildCount();
 		} catch (NullPointerException e) {
+			e.printStackTrace();
 			return 0;
 		}
 	}

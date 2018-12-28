@@ -158,7 +158,7 @@ public class FaDEMenu extends JMenuBar {
 			public void actionPerformed(ActionEvent e) {
 				final JDialog jd = new JDialog();
 				JOptionPane.showMessageDialog(jd,
-						"FaDE File and Directory Explorer\nVersion 1.0\n\n(c)hristian Pressler 2010 - "+year+" | https://github.com/chpressler/fade.git\nchristian.pressler@gmail.com", "About FaDE",
+						"FaDE File and Directory Explorer\nVersion 1.0\n\n(c)hristian Pressler 2010 - "+year+" | github.com/chpressler/fade\nchristian.pressler@gmail.com", "About FaDE",
 						JOptionPane.INFORMATION_MESSAGE, new ImageIcon("about.jpg"));
 			}
 		});

@@ -8,9 +8,9 @@ import java.io.File;
 public class FileRenameCommand implements IRenameCommand {
 
     @Override
-    public void rename(IFile file, String newName) throws Exception {
+    public boolean rename(IFile file, String newName) throws Exception {
         File newFile = new File(file.getURI().getPath().substring(0, file.getURI().getPath().lastIndexOf(File.separator)+1) + newName);
-        file.getFile().renameTo(newFile);
+        return file.getFile().renameTo(newFile);
     }
 
 }
