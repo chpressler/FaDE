@@ -14,16 +14,20 @@ public class File implements IFile {
     boolean isDir;
     String name;
     URI uri;
+    long modified;
+    long size;
 
     List<IFile> children;
     IFile parent;
 
-    public File(String name, DropBoxConnector c, boolean isDir, URI uri) {
+    public File(String name, DropBoxConnector c, boolean isDir, URI uri, long lastModified, long size) {
         this.connector = c;
         this.name = name;
         this.isDir = isDir;
         this.uri = uri;
         children = new ArrayList<>();
+        this.modified = lastModified;
+        this.size = size;
     }
 
     @Override
@@ -66,7 +70,7 @@ public class File implements IFile {
 
     @Override
     public long getSize() {
-        return 0;
+        return size;
     }
 
     @Override
@@ -81,7 +85,7 @@ public class File implements IFile {
 
     @Override
     public long getLastChanged() {
-        return 0;
+        return modified;
     }
 
     @Override
@@ -117,7 +121,7 @@ public class File implements IFile {
         if (name.isEmpty()) {
             return null;
         }
-        return new File( name, connector, true, u );
+        return new File( name, connector, true, u , 0, 0);
     }
 
     @Override

@@ -11,6 +11,7 @@ import org.json.JSONTokener;
 import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +29,29 @@ public class DropBoxConnector implements IConnector {
         return root.get(".tag").equals("folder");
     }
 
+    private long getSize(String metadataJSON) {
+        JSONTokener t = new JSONTokener(metadataJSON);
+        JSONObject root = new JSONObject(t);
+        try {
+            return (long) (Integer) root.get("size");
+        } catch(Exception e) {
+            e.printStackTrace();
+            return 0L;
+        }
+    }
+
+    private long lastModified(String metadataJSON) {
+        JSONTokener t = new JSONTokener(metadataJSON);
+        JSONObject root = new JSONObject(t);
+        //DateFormat df = new SimpleDateFormat("yyyy-MM-ddTHH:mm:SSZ");
+        try {
+            //return df.parse((String) root.get("client_modified")).getTime();
+            return Instant.parse((String) root.get("client_modified")).toEpochMilli();
+        } catch (Exception e) {
+            return 0L;
+        }
+    }
+
     public List<IFile> getChildren(IFile f) {
         List<IFile> list = new ArrayList<>();
         try {
@@ -36,9 +60,11 @@ public class DropBoxConnector implements IConnector {
             ListFolderResult result = client.files().listFolder(f.getURI().getPath());
             while (true) {
                 for (Metadata metadata : result.getEntries()) {
+                    String metaDataString = metadata.toString();
                     System.out.println(metadata.getPathLower());
-                    boolean isDir = isDir(metadata.toString());
-                    list.add(new com.jensui.projects.fade.connector.dropbox.File(getName(metadata.getPathLower()), this, isDir, new URI(metadata.getPathLower())));
+                    boolean isDir = isDir(metaDataString);
+                    IFile file =  new com.jensui.projects.fade.connector.dropbox.File(getName(metadata.getPathLower()), this, isDir, new URI(metadata.getPathLower()), lastModified(metaDataString), getSize(metaDataString));
+                    list.add(file);
                 }
 
                 if (!result.getHasMore()) {
@@ -71,7 +97,7 @@ public class DropBoxConnector implements IConnector {
     public List<IFile> getRootFiles() {
         List<IFile> files = new ArrayList<>();
         try {
-            files.add(new com.jensui.projects.fade.connector.dropbox.File("", this, true, new URI("")));
+            files.add(new com.jensui.projects.fade.connector.dropbox.File("", this, true, new URI(""), 0, 0));
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }

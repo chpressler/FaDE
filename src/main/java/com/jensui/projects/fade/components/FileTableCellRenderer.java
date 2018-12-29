@@ -5,7 +5,6 @@ import com.jensui.projects.fade.IFile;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
-import javax.swing.filechooser.FileSystemView;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
@@ -122,7 +121,11 @@ class FileTableCellRenderer extends JLabel implements
 		// // && back.equals(table.getBackground()));
 		
 		if(column == 0) {
-			setIcon(FileSystemView.getFileSystemView().getSystemIcon(((IFile) value).getFile()));
+			if(((IFile) value).isDir()) {
+				setIcon(UIManager.getIcon("FileView.directoryIcon"));
+			} else {
+				setIcon(UIManager.getIcon("FileView.fileIcon"));
+			}
 		}
 		
 		if(c.getCurrentDirectory().getParent() != null && row == 0 && column == 0) {

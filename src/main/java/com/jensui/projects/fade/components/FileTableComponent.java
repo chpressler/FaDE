@@ -201,7 +201,9 @@ public class FileTableComponent extends JPanel implements IExplorerComponent {
 		view.clearSelection();
 		for(ExplorerComponentListener l : listeners) {
 			l.currentDirectoryPathChanged(new ExplorerComponentEvent(this));
-		}	
+		}
+		view.validate();
+		view.updateUI();
 		repaint();
 		revalidate();
 		validate();
