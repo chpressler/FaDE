@@ -16,7 +16,7 @@ import java.util.List;
 
 public class DropBoxConnector implements IConnector {
 
-    private static final String ACCESS_TOKEN = "3S6a37tHco8AAAAAAAAZSk84YXGd0UNeSTBzTcyfxFcPuXbUPw4dajES-EWZKtOT";
+    private static final String ACCESS_TOKEN = "";
 
     private String getName(String path) {
         return path.split("/")[path.split("/").length-1];
