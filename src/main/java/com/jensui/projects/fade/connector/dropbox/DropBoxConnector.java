@@ -11,6 +11,7 @@ import org.json.JSONTokener;
 import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URLEncoder;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +36,6 @@ public class DropBoxConnector implements IConnector {
         try {
             return (long) (Integer) root.get("size");
         } catch(Exception e) {
-            e.printStackTrace();
             return 0L;
         }
     }
@@ -57,13 +57,13 @@ public class DropBoxConnector implements IConnector {
         try {
             DbxRequestConfig config = DbxRequestConfig.newBuilder("fade").build();
             DbxClientV2 client = new DbxClientV2(config, ACCESS_TOKEN);
-            ListFolderResult result = client.files().listFolder(f.getURI().getPath());
+            ListFolderResult result = client.files().listFolder(f.getURI().getPath().replaceAll("\\+", " "));
             while (true) {
                 for (Metadata metadata : result.getEntries()) {
                     String metaDataString = metadata.toString();
                     System.out.println(metadata.getPathLower());
                     boolean isDir = isDir(metaDataString);
-                    IFile file =  new com.jensui.projects.fade.connector.dropbox.File(getName(metadata.getPathLower()), this, isDir, new URI(metadata.getPathLower()), lastModified(metaDataString), getSize(metaDataString));
+                    IFile file =  new com.jensui.projects.fade.connector.dropbox.File(getName(metadata.getPathLower()), this, isDir, new URI(URLEncoder.encode(metadata.getPathLower(), "UTF-8")), lastModified(metaDataString), getSize(metaDataString));
                     list.add(file);
                 }
 
