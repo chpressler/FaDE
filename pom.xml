@@ -46,6 +46,11 @@
             <artifactId>dropbox-core-sdk</artifactId>
             <version>3.0.11</version>
         </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>LATEST</version>
+        </dependency>
     </dependencies>
 
     <build>
