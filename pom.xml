@@ -60,7 +60,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.jensui.projects.fade.FaDE</mainClass>
+                            <mainClass>com.github.chpressler.fade.FaDE</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
