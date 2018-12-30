@@ -20,6 +20,25 @@ public class DropBoxConnector implements IConnector {
 
     private static final String ACCESS_TOKEN = "";
 
+    private DbxRequestConfig config;
+    private DbxClientV2 client;
+
+    IRenameCommand renameCommand;
+    ICreateCommand createCommand;
+    IMoveCommand moveComamnd;
+    IDeleteCommand deleteCommand;
+    ICopyCommand copyCommand;
+
+    public DropBoxConnector() {
+        renameCommand = new DropBoxRenameCommand();
+        createCommand = new DropBoxCreateCommand();
+        moveComamnd = new DropBoxMoveCommand();
+        deleteCommand = new DropBoxDeleteCommand();
+        copyCommand = new DropBoxCopyCommand();
+        config = DbxRequestConfig.newBuilder("fade").build();
+        client = new DbxClientV2(config, ACCESS_TOKEN);
+    }
+
     private String getName(String path) {
         return path.split("/")[path.split("/").length-1];
     }
@@ -55,8 +74,6 @@ public class DropBoxConnector implements IConnector {
     public List<IFile> getChildren(IFile f) {
         List<IFile> list = new ArrayList<>();
         try {
-            DbxRequestConfig config = DbxRequestConfig.newBuilder("fade").build();
-            DbxClientV2 client = new DbxClientV2(config, ACCESS_TOKEN);
             ListFolderResult result = client.files().listFolder(f.getURI().getPath().replaceAll("\\+", " "));
             while (true) {
                 for (Metadata metadata : result.getEntries()) {
@@ -80,11 +97,30 @@ public class DropBoxConnector implements IConnector {
 
     @Override
     public IFile getFile(URI uri) {
+        try {
+            if(uri.getPath().trim().isEmpty()) {
+                return new com.github.chpressler.fade.connector.dropbox.File("", this, true, new URI(""), 0, 0);
+            }
+            Metadata md = client.files().getMetadata(uri.getPath());
+            String mds = md.toString();
+            String name = md.getName();
+            boolean isDir = isDir(mds);
+            long modified = lastModified(mds);
+            long size = getSize(mds);
+            return new com.github.chpressler.fade.connector.dropbox.File(name, this, isDir, uri, modified, size);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public IFile getFile(String path) {
+        try {
+            return getFile(new URI(path));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -106,27 +142,27 @@ public class DropBoxConnector implements IConnector {
 
     @Override
     public IRenameCommand getRenameCommand() {
-        return null;
+        return renameCommand;
     }
 
     @Override
     public ICopyCommand getCopyCommand() {
-        return null;
+        return copyCommand;
     }
 
     @Override
     public IDeleteCommand getDeleteCommand() {
-        return null;
+        return deleteCommand;
     }
 
     @Override
     public IMoveCommand getMoveCommand() {
-        return null;
+        return moveComamnd;
     }
 
     @Override
     public ICreateCommand getCreateCommand() {
-        return null;
+        return createCommand;
     }
 
 }

@@ -5,8 +5,6 @@ import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -34,15 +32,7 @@ public class URLComponent extends JPanel implements ExplorerComponentListener {
 			@Override
 			public void keyReleased(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					IFile f = fadeComponent.getIExplorerComponent().getCurrentDirectory().getConnector().getFile(textField.getText());
-					if (f != null) {
-						if(!getRoot(f).getURI().getPath().equals(fadeComponent.getIExplorerComponent().getRoot().getURI().getPath())) {
-							fadeComponent.getIExplorerComponent().setRoot(f);
-						}
-						fadeComponent.getIExplorerComponent().setCurrentDirectory(f);
-					} else {
-						textField.setText(fadeComponent.getIExplorerComponent().getCurrentDirectory().getURI().getPath());
-					}
+					urlChanged();
 				}
 			}
 			@Override
@@ -50,25 +40,25 @@ public class URLComponent extends JPanel implements ExplorerComponentListener {
 				
 			}});
         JButton button = new JButton("go");
-		button.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				IFile f = fadeComponent.getIExplorerComponent().getCurrentDirectory().getConnector().getFile(textField.getText());
-				if (f != null) {
-					if(!getRoot(f).getURI().getPath().equals(fadeComponent.getIExplorerComponent().getRoot().getURI().getPath())) {
-						fadeComponent.getIExplorerComponent().setRoot(f);
-					}
-					fadeComponent.getIExplorerComponent().setCurrentDirectory(f);
-				} else {
-					textField.setText(fadeComponent.getIExplorerComponent().getCurrentDirectory().getURI().getPath());
-				}
-			}});
+		button.addActionListener(e -> urlChanged());
 		setLayout(layout);
 		add(textField, "growx");
 		add(button);
 //		panel.add(comp, "w 40!"); // w is short for width.
 //		add(textField);
 //		add(button);
+	}
+
+	private void urlChanged() {
+		IFile f = fadeComponent.getIExplorerComponent().getCurrentDirectory().getConnector().getFile(textField.getText());
+		if (f != null) {
+			if(!getRoot(f).getURI().getPath().equals(fadeComponent.getIExplorerComponent().getRoot().getURI().getPath())) {
+				fadeComponent.getIExplorerComponent().setRoot(f);
+			}
+			fadeComponent.getIExplorerComponent().setCurrentDirectory(f);
+		} else {
+			textField.setText(fadeComponent.getIExplorerComponent().getCurrentDirectory().getURI().getPath());
+		}
 	}
 	
 	public void setSelected(boolean b) {

@@ -103,7 +103,7 @@ public class File implements IFile {
     }
 
     private String getParentPath(String path) {
-        if(path.isEmpty()) {
+        if(path == null || path.trim().isEmpty()) {
             return "";
         }
         return path.substring(0, path.lastIndexOf("/"));
@@ -118,7 +118,7 @@ public class File implements IFile {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-        if (name.isEmpty()) {
+        if (getName().trim().isEmpty() || getName().equals("/")) {
             return null;
         }
         return new File( name, connector, true, u , 0, 0);
@@ -131,16 +131,26 @@ public class File implements IFile {
 
     @Override
     public void setConnector(IConnector connector) {
-
+        this.connector = (DropBoxConnector) connector;
     }
 
     @Override
     public boolean mkDir() {
+        try {
+            return connector.getCreateCommand().createDirectory(name, this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return false;
     }
 
     @Override
     public boolean createNewFile() {
+        try {
+            return connector.getCreateCommand().createFile(name, this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return false;
     }
 
