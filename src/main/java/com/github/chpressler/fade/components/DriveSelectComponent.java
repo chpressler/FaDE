@@ -1,12 +1,18 @@
 package com.github.chpressler.fade.components;
 
 import com.github.chpressler.fade.ConnectorManager;
+import com.github.chpressler.fade.FaDE;
 import com.github.chpressler.fade.IConnector;
 import com.github.chpressler.fade.IFile;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +25,29 @@ public class DriveSelectComponent extends JPanel implements ExplorerComponentLis
     private DriveButton currentSelected;
 
     private int getRootCount() {
-       return getRootFiles().size();
+        FaDE.OSType os = FaDE.getOSType();
+        switch (os) {
+            case UNIX:
+                try {
+                    int count = 0;
+                    Process mountProcess = Runtime.getRuntime().exec("mount");
+                    BufferedReader mountOutput = new BufferedReader(new InputStreamReader(mountProcess.getInputStream()));
+                    while (true) {
+                        count++;
+                        String line = mountOutput.readLine();
+                        if (line == null) {
+                            break;
+                        }
+                    }
+                    return count;
+                } catch (Exception e) {
+                    return File.listRoots().length;
+                }
+            case MS:
+                // fall through
+            default:
+                return File.listRoots().length;
+        }
     }
 
     private boolean rootCountChanged() {
@@ -36,6 +64,7 @@ public class DriveSelectComponent extends JPanel implements ExplorerComponentLis
     }
 
     private List<IFile> getRootFiles() {
+        //TODO -> move all this in default Connector
         List<IFile> roots = new ArrayList<>();
         for(IConnector c : ConnectorManager.getInstance().getConnectors()) {
             roots.addAll(c.getRootFiles());
@@ -56,15 +85,16 @@ public class DriveSelectComponent extends JPanel implements ExplorerComponentLis
 			bg.add(b);
 			b.setToolTipText(FileSystemView.getFileSystemView().getSystemDisplayName(f.getFile()));
 			b.setIcon(FileSystemView.getFileSystemView().getSystemIcon(f.getFile()));
-			b.addActionListener(e -> {
-                if(!((DriveButton) e.getSource()).getFile().exists()) {
-                    currentSelected.setSelected(true);
-                    return;
-                }
-                currentSelected = (DriveButton) e.getSource();
-                c.getIExplorerComponent().setCurrentDirectory(((DriveButton) e.getSource()).getFile());
-                c.getIExplorerComponent().setRoot(((DriveButton) e.getSource()).getFile());
-            });
+			b.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if(!((DriveButton) e.getSource()).getFile().exists()) {
+						currentSelected.setSelected(true);
+						return;
+					}
+					currentSelected = (DriveButton) e.getSource();
+					c.getIExplorerComponent().setCurrentDirectory(((DriveButton) e.getSource()).getFile());	
+					c.getIExplorerComponent().setRoot(((DriveButton) e.getSource()).getFile());	
+				}});
 			add(b);
 		}
 		for(DriveButton tb : buttons) {
@@ -92,15 +122,18 @@ public class DriveSelectComponent extends JPanel implements ExplorerComponentLis
 //		setLayout(new FlowLayout());
 		this.c = c;
 		init();
-        new Thread(() -> {
-            while (true) {
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                if(rootCountChanged()) {
-                    init();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if(rootCountChanged()) {
+                        init();
+                    }
                 }
             }
         }).start();

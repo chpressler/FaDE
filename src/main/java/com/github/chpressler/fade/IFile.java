@@ -18,8 +18,6 @@ public interface IFile {
 
     public String getDescription();
 
-    public String getDisplayName();
-
     public long getSize();
 
     public long getTotalSpace();

@@ -1,6 +1,5 @@
 package com.github.chpressler.fade.connector.dropbox;
 
-import com.dropbox.core.DbxException;
 import com.dropbox.core.DbxRequestConfig;
 import com.dropbox.core.v2.DbxClientV2;
 import com.dropbox.core.v2.files.ListFolderResult;
@@ -19,9 +18,7 @@ import java.util.List;
 
 public class DropBoxConnector implements IConnector {
 
-    public static String CONNECTOR_NAME = "DropBox";
-
-    private static final String ACCESS_TOKEN = "3S6a37tHco8AAAAAAAAZTeOPgFfQn4civQ0I7h4gLtunQS5SbJoTq4i-PxdaeIBr";
+    private static final String ACCESS_TOKEN = "";
 
     private DbxRequestConfig config;
     private DbxClientV2 client;
@@ -62,24 +59,6 @@ public class DropBoxConnector implements IConnector {
         }
     }
 
-    public long getUsedSpace() {
-        try {
-            return client.users().getSpaceUsage().getUsed();
-        } catch (DbxException e) {
-            e.printStackTrace();
-        }
-        return 0L;
-    }
-
-    public long getTotalPace() {
-        try {
-            return client.users().getSpaceUsage().getAllocation().getIndividualValue().getAllocated();
-        } catch (DbxException e) {
-            e.printStackTrace();
-        }
-        return 0L;
-    }
-
     private long lastModified(String metadataJSON) {
         JSONTokener t = new JSONTokener(metadataJSON);
         JSONObject root = new JSONObject(t);
@@ -99,6 +78,7 @@ public class DropBoxConnector implements IConnector {
             while (true) {
                 for (Metadata metadata : result.getEntries()) {
                     String metaDataString = metadata.toString();
+                    System.out.println(metadata.getPathLower());
                     boolean isDir = isDir(metaDataString);
                     IFile file =  new com.github.chpressler.fade.connector.dropbox.File(getName(metadata.getPathLower()), this, isDir, new URI(URLEncoder.encode(metadata.getPathLower(), "UTF-8")), lastModified(metaDataString), getSize(metaDataString));
                     list.add(file);
@@ -119,7 +99,7 @@ public class DropBoxConnector implements IConnector {
     public IFile getFile(URI uri) {
         try {
             if(uri.getPath().trim().isEmpty()) {
-                return new com.github.chpressler.fade.connector.dropbox.File("", this, true, new URI(""), 0, getUsedSpace());
+                return new com.github.chpressler.fade.connector.dropbox.File("", this, true, new URI(""), 0, 0);
             }
             Metadata md = client.files().getMetadata(uri.getPath());
             String mds = md.toString();
@@ -152,7 +132,11 @@ public class DropBoxConnector implements IConnector {
     @Override
     public List<IFile> getRootFiles() {
         List<IFile> files = new ArrayList<>();
-        files.add(getFile(""));
+        try {
+            files.add(new com.github.chpressler.fade.connector.dropbox.File("", this, true, new URI(""), 0, 0));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
         return files;
     }
 

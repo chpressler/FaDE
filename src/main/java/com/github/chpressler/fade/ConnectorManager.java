@@ -23,8 +23,8 @@ public class ConnectorManager {
         return instance;
     }
 
-    public void addConnector(IConnector c) {
-        connectors.add(c);
+    public void addConnector() {
+
     }
 
     public List<IConnector> getConnectors() {
