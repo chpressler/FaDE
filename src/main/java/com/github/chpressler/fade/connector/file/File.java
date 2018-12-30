@@ -81,6 +81,11 @@ public class File implements IFile {
     }
 
     @Override
+    public String getDisplayName() {
+        return getName();
+    }
+
+    @Override
     public long getSize() {
         return file.length();
     }

@@ -35,7 +35,8 @@ class DriveButton extends JToggleButton {
 	private final Color occSpaceLower;
 	
 	public DriveButton(IFile f) {
-		super(f.getURI().toString());
+		//super(f.getURI().toString());
+		super(f.getDisplayName());
 		this.f = f;
 		
 		freeSpaceUpper = new Color(200, 200, 200);
@@ -113,7 +114,7 @@ class DriveButton extends JToggleButton {
 			Font font = new Font("Arial", Font.BOLD, 15);
 			g2d.setFont(font);
 			float fl = (getHeight() - g2d.getFontMetrics(font).getHeight() / 2f);
-			g2d.drawString(f.getURI().getPath(), 10f, fl);
+			g2d.drawString(f.getDisplayName(), 10f, fl);
 			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.6f));	
 		} else {
 			long total = f.getTotalSpace();
@@ -142,7 +143,7 @@ class DriveButton extends JToggleButton {
 			Font font = new Font("Arial", Font.BOLD, 15);
 			g2d.setFont(font);
 			float fl = (getHeight() - g2d.getFontMetrics(font).getHeight() / 2f);
-			g2d.drawString(f.getURI().getPath(), 10f, fl);
+			g2d.drawString(f.getDisplayName(), 10f, fl);
 			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.6f));
 		}
 		if(mouseOver) {

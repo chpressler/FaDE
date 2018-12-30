@@ -20,6 +20,8 @@ public class File implements IFile {
     List<IFile> children;
     IFile parent;
 
+    private long lastUpdated = 0L;
+
     public File(String name, DropBoxConnector c, boolean isDir, URI uri, long lastModified, long size) {
         this.connector = c;
         this.name = name;
@@ -32,19 +34,19 @@ public class File implements IFile {
 
     @Override
     public int getChildCount() {
-        //return connector.getChildren(this).size();
-        if(children.size() == 0) {
+        if(System.currentTimeMillis() - lastUpdated > 10000|| children.size() == 0) {
             children = connector.getChildren(this);
         }
+        lastUpdated = System.currentTimeMillis();
         return children.size();
     }
 
     @Override
     public List<IFile> getChildren() {
-        //return connector.getChildren(this);
-        if(children.size() == 0) {
+        if(System.currentTimeMillis() - lastUpdated > 10000|| children.size() == 0) {
             children = connector.getChildren(this);
         }
+        lastUpdated = System.currentTimeMillis();
         return children;
     }
 
@@ -69,18 +71,23 @@ public class File implements IFile {
     }
 
     @Override
+    public String getDisplayName() {
+        return DropBoxConnector.CONNECTOR_NAME + getURI().getPath();
+    }
+
+    @Override
     public long getSize() {
         return size;
     }
 
     @Override
     public long getTotalSpace() {
-        return 0;
+        return connector.getTotalPace();
     }
 
     @Override
     public long getFreeSpace() {
-        return 0;
+        return connector.getTotalPace() - connector.getUsedSpace();
     }
 
     @Override
@@ -121,7 +128,8 @@ public class File implements IFile {
         if (getName().trim().isEmpty() || getName().equals("/")) {
             return null;
         }
-        return new File( name, connector, true, u , 0, 0);
+        return connector.getFile(u);
+        //return new File( name, connector, true, u , 0, xxx);
     }
 
     @Override
@@ -158,4 +166,5 @@ public class File implements IFile {
     public boolean setWritable(boolean b) {
         return false;
     }
+
 }

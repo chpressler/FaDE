@@ -1,6 +1,6 @@
 package com.github.chpressler.fade.components;
 
-interface ExplorerComponentListener {
+public interface ExplorerComponentListener {
 	
 	void rootChanged(ExplorerComponentEvent e);
 	
