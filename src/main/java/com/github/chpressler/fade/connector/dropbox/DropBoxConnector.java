@@ -21,7 +21,7 @@ public class DropBoxConnector implements IConnector {
 
     public static String CONNECTOR_NAME = "DropBox";
 
-    private static final String ACCESS_TOKEN = "3S6a37tHco8AAAAAAAAZTeOPgFfQn4civQ0I7h4gLtunQS5SbJoTq4i-PxdaeIBr";
+    private static final String ACCESS_TOKEN = "";
 
     private DbxRequestConfig config;
     private DbxClientV2 client;
