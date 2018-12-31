@@ -1,10 +1,16 @@
 package com.github.chpressler.fade;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.util.List;
 
 public interface IFile {
+
+    public default String getOrigin() {
+        return getConnector().getClass().getCanonicalName();
+    }
 
     public int getChildCount();
 
@@ -15,8 +21,6 @@ public interface IFile {
     public URI getURI();
 
     public boolean isDir();
-
-    public String getDescription();
 
     public String getDisplayName();
 
@@ -30,7 +34,7 @@ public interface IFile {
 
     public boolean exists();
 
-    public File getFile();
+    public InputStream readFile() throws IOException;
 
     public IFile getParent();
 
@@ -43,5 +47,7 @@ public interface IFile {
     public boolean createNewFile();
 
     public boolean setWritable(boolean b);
+
+    public File getFile();
 
 }

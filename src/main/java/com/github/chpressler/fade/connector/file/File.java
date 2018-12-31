@@ -3,7 +3,7 @@ package com.github.chpressler.fade.connector.file;
 import com.github.chpressler.fade.IConnector;
 import com.github.chpressler.fade.IFile;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
@@ -51,6 +51,11 @@ public class File implements IFile {
     }
 
     @Override
+    public java.io.File getFile() {
+        return file;
+    }
+
+    @Override
     public int getChildCount() {
         return file.list().length;
     }
@@ -76,13 +81,8 @@ public class File implements IFile {
     }
 
     @Override
-    public String getDescription() {
-        return "";
-    }
-
-    @Override
     public String getDisplayName() {
-        return getName();
+        return getURI().getPath();
     }
 
     @Override
@@ -111,8 +111,8 @@ public class File implements IFile {
     }
 
     @Override
-    public java.io.File getFile() {
-        return file;
+    public InputStream readFile() throws IOException {
+        return new FileInputStream(file);
     }
 
     @Override

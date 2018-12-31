@@ -3,6 +3,8 @@ package com.github.chpressler.fade.connector.dropbox;
 import com.github.chpressler.fade.IConnector;
 import com.github.chpressler.fade.IFile;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -20,8 +22,6 @@ public class File implements IFile {
     List<IFile> children;
     IFile parent;
 
-    private long lastUpdated = 0L;
-
     public File(String name, DropBoxConnector c, boolean isDir, URI uri, long lastModified, long size) {
         this.connector = c;
         this.name = name;
@@ -34,19 +34,17 @@ public class File implements IFile {
 
     @Override
     public int getChildCount() {
-        if(System.currentTimeMillis() - lastUpdated > 10000|| children.size() == 0) {
+        if(children.size() == 0) {
             children = connector.getChildren(this);
         }
-        lastUpdated = System.currentTimeMillis();
         return children.size();
     }
 
     @Override
     public List<IFile> getChildren() {
-        if(System.currentTimeMillis() - lastUpdated > 10000|| children.size() == 0) {
+        if(children.size() == 0) {
             children = connector.getChildren(this);
         }
-        lastUpdated = System.currentTimeMillis();
         return children;
     }
 
@@ -63,11 +61,6 @@ public class File implements IFile {
     @Override
     public boolean isDir() {
         return isDir;
-    }
-
-    @Override
-    public String getDescription() {
-        return "";
     }
 
     @Override
@@ -101,7 +94,7 @@ public class File implements IFile {
     }
 
     @Override
-    public java.io.File getFile() {
+    public InputStream readFile() throws IOException {
         return null;
     }
 
@@ -118,18 +111,19 @@ public class File implements IFile {
 
     @Override
     public IFile getParent() {
-        String name = getFileName(getParentPath(uri.getPath()));
-        URI u = null;
-        try {
-            u = new URI(getParentPath(uri.getPath()));
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
+        if(parent == null) {
+            URI u = null;
+            try {
+                u = new URI(getParentPath(uri.getPath()));
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+            if (getName().trim().isEmpty() || getName().equals("/")) {
+                return null;
+            }
+            parent = connector.getFile(u);
         }
-        if (getName().trim().isEmpty() || getName().equals("/")) {
-            return null;
-        }
-        return connector.getFile(u);
-        //return new File( name, connector, true, u , 0, xxx);
+        return parent;
     }
 
     @Override
@@ -165,6 +159,16 @@ public class File implements IFile {
     @Override
     public boolean setWritable(boolean b) {
         return false;
+    }
+
+    @Override
+    public java.io.File getFile() {
+        try {
+            return connector.readFile(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

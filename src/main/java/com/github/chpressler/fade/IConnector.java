@@ -1,6 +1,7 @@
 package com.github.chpressler.fade;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URI;
 import java.util.List;
 
@@ -10,7 +11,7 @@ public interface IConnector {
 
     public IFile getFile(String path);
 
-    public File convert(IFile f);
+    public File readFile(IFile f) throws IOException;
 
     public List<IFile> getRootFiles();
 

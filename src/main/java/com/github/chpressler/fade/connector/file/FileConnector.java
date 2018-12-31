@@ -3,9 +3,8 @@ package com.github.chpressler.fade.connector.file;
 import com.github.chpressler.fade.*;
 import com.github.chpressler.fade.components.DriveSelectComponent;
 
-import java.io.BufferedReader;
+import java.io.*;
 import java.io.File;
-import java.io.InputStreamReader;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,7 +25,7 @@ public class FileConnector implements IConnector {
     }
 
     @Override
-    public File convert(IFile f) {
+    public File readFile(IFile f) throws IOException {
         return f.getFile();
     }
 
@@ -35,9 +34,13 @@ public class FileConnector implements IConnector {
         FaDE.OSType os = FaDE.getOSType();
         switch (os) {
             case UNIX:
+                Process mountProcess = null;
                 try {
-                    Process mountProcess = Runtime.getRuntime().exec("mount");
-                    BufferedReader mountOutput = new BufferedReader(new InputStreamReader(mountProcess.getInputStream()));
+                    mountProcess = Runtime.getRuntime().exec("mount");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                try(BufferedReader mountOutput = new BufferedReader(new InputStreamReader(mountProcess.getInputStream()))) {
                     List<File> roots = new ArrayList<File>();
                     while (true) {
                         String line = mountOutput.readLine();

@@ -146,7 +146,7 @@ class FileTreeCellRenderer extends JLabel implements TreeCellRenderer {
 			boolean hasFocus) {
 		if (leaf)
 //			setIcon(getLeafIcon());
-			setIcon( FileSystemView.getFileSystemView().getSystemIcon( ((IFile) val).getFile() ));
+			setIcon( FileSystemView.getFileSystemView().getSystemIcon(((IFile) val).getFile()));
 		else if (expanded)
 			setIcon(getOpenIcon());
 		else

@@ -9,6 +9,7 @@ import com.github.chpressler.fade.*;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import java.io.*;
 import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -33,13 +34,13 @@ public class DropBoxConnector implements IConnector {
     ICopyCommand copyCommand;
 
     public DropBoxConnector() {
+        config = DbxRequestConfig.newBuilder("fade").build();
+        client = new DbxClientV2(config, ACCESS_TOKEN);
         renameCommand = new DropBoxRenameCommand();
         createCommand = new DropBoxCreateCommand();
         moveComamnd = new DropBoxMoveCommand();
         deleteCommand = new DropBoxDeleteCommand();
-        copyCommand = new DropBoxCopyCommand();
-        config = DbxRequestConfig.newBuilder("fade").build();
-        client = new DbxClientV2(config, ACCESS_TOKEN);
+        copyCommand = new DropBoxCopyCommand(client);
     }
 
     private String getName(String path) {
@@ -145,7 +146,20 @@ public class DropBoxConnector implements IConnector {
     }
 
     @Override
-    public File convert(IFile f) {
+    public File readFile(IFile f) throws IOException {
+        OutputStream out = null;
+        try {
+            File file = new File(f.getName());
+            out = new FileOutputStream(file);
+            client.files().download(f.getURI().getPath().replaceAll("\\+", " ")).download(out, l -> {});
+            return file;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if(out != null) {
+                out.close();
+            }
+        }
         return null;
     }
 
